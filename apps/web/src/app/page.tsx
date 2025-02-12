@@ -37,7 +37,7 @@ export default function Home() {
           </div>
         ) : (
           <Button asChild>
-            <Link href="http://localhost:3333/auth/redirect">
+            <Link href={`${process.env.EXPO_PUBLIC_BACKEND_URL}/auth/redirect`}>
               Login with <Icons.spotify fill="white" />
             </Link>
           </Button>
