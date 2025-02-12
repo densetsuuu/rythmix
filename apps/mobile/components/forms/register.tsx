@@ -36,7 +36,7 @@ export function RegisterForm() {
       state: randomUUID(),
     },
     {
-      authorizationEndpoint: "http://localhost:3333/spotify/redirect",
+      authorizationEndpoint: `${process.env.EXPO_PUBLIC_BACKEND_URL}/spotify/redirect`,
     },
   );
 
