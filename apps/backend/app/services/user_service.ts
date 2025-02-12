@@ -6,21 +6,16 @@ import SpotifyAccount from '#models/spotify_account'
 type RegisterParams = Infer<typeof registerValidator>
 
 export default class UserService {
-  async all() {
-    const users = await User.all()
-    return users
+  all() {
+    return User.all()
   }
 
   create(data: RegisterParams) {
     return User.create(data)
   }
 
-  find(id: number) {
-    return User.findOrFail(id)
-  }
-
-  findByEmail(email: string) {
-    return User.findBy('email', email)
+  async find(id: string | number) {
+    return await User.findOrFail(id)
   }
 
   update(user: User, data: User) {
@@ -29,8 +24,9 @@ export default class UserService {
   }
 
   async getUserOwningSpotifyAccount(spotifyAccount: SpotifyAccount) {
-    const user = await User.find(spotifyAccount.userId || null)
-    console.log(user)
-    return user
+    if (!spotifyAccount.userId) {
+      return null
+    }
+    return this.find(spotifyAccount.userId)
   }
 }

@@ -53,7 +53,7 @@ export function RegisterForm() {
       setToken(access_token);
       router.replace("/");
     }
-  }, [response, error]);
+  }, [response]);
 
   return (
     <VStack className="w-80">

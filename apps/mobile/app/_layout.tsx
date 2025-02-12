@@ -14,6 +14,7 @@ import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 
 import "../global.css";
 import ReactQueryProvider from "@/components/providers/query-client-provider";
+import { Box } from "@/components/ui/box";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -40,7 +41,9 @@ export default function RootLayout() {
         <ThemeProvider
           value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
         >
-          <Slot />
+          <Box>
+            <Slot />
+          </Box>
         </ThemeProvider>
       </GluestackUIProvider>
     </ReactQueryProvider>

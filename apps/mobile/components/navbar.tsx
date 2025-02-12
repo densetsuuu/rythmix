@@ -41,7 +41,7 @@ export function Navbar() {
         onPress={() => logout()}
         size="lg"
         variant="outline"
-        className="border-slate-300 border-[0.5px] rounded-2xl py-6 px-4"
+        className="border-slate-300 border-[0.5px] rounded-2xl size-10"
       >
         <ButtonIcon as={Icons.logout} className="text-red-400" />
       </Button>

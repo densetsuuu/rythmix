@@ -6,5 +6,6 @@ export default configApp({
     '@typescript-eslint/no-unused-vars': 'warn',
     'no-unused-local-variables': 'off',
     'newline-per-chained-call': ['off'],
+    'one-var': ['off'],
   },
 })

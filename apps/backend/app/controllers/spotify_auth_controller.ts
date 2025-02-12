@@ -5,7 +5,6 @@ import { inject } from '@adonisjs/core'
 import User from '#models/user'
 import { spotifyRedirectValidator } from '#validators/spotify_auth'
 import encryption from '@adonisjs/core/services/encryption'
-import logger from '@adonisjs/core/services/logger'
 
 interface State {
   redirectUri: string | null
@@ -17,7 +16,6 @@ export default class SpotifyAuthController {
   constructor(private userService: UserService) {}
 
   public async redirect({ ally, request }: HttpContext) {
-    logger.info(request.all())
     const { redirect_uri: redirectUri, state } =
       await request.validateUsing(spotifyRedirectValidator)
     const stateObject: State = { redirectUri, state }

@@ -1,4 +1,10 @@
-import { BadgeCheckIcon, LogOutIcon, LucideIcon } from "lucide-react-native";
+import {
+  BadgeCheckIcon,
+  LogOutIcon,
+  LucideIcon,
+  PlusIcon,
+  ZapIcon,
+} from "lucide-react-native";
 import { Path } from "react-native-svg";
 import { createIcon } from "@/components/ui/icon";
 
@@ -7,6 +13,8 @@ export type Icon = LucideIcon;
 export const Icons = {
   authenticated: BadgeCheckIcon,
   logout: LogOutIcon,
+  plus: PlusIcon,
+  zap: ZapIcon,
   spotify: createIcon({
     viewBox: "0 0 168 168",
     path: (

@@ -1,9 +1,9 @@
 ###
+
 ### GET All users
 GET http://localhost:3333/users
 Accept: application/json
 
-###
 ### POST Register new user
 POST http://localhost:3333/users
 Content-Type: application/json
@@ -11,7 +11,7 @@ Content-Type: application/json
 {
   "email": "test@test.com",
   "password": "Test123*",
-  "username": "Test User",
+  "username": "test",
   "confirmPassword": "Test123*"
 }
 
@@ -25,16 +25,43 @@ Content-Type: application/json
   "password": "Test123*"
 }
 
+> {%
+  client.global.set("auth_token", response.body.token);
+%}
+
 ###
 ### GET Profile
 GET http://localhost:3333/auth/me
 Access-Control-Allow-Credentials: true
-Authorization: Basic test@test.co Test123*
+Authorization: Bearer {{auth_token}}
 
 ###
 ### POST Logout
 POST http://localhost:3333/auth/logout
 Content-Type: application/json
 
-{}
+###
+GET localhost:3333/users/1/friends?status=pending
+Authorization: Bearer {{auth_token}}
 
+###
+POST localhost:3333/users/1/friends
+Authorization: Bearer oat_MTc.cmpMTm5EWDZlWXNRQVhOYVYwT1ozVU1adDJkQzl4UXp1V2ppR2I1YTE1MzQ4MzgxMA
+Content-Type: application/json
+
+{
+  "friendId": 3
+}
+
+###
+PUT localhost:3333/users/2/friends/1
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "action": "accept"
+}
+
+###
+DELETE localhost:3333/users/1/friends/2
+Authorization: Bearer {{auth_token}}

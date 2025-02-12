@@ -1,10 +1,10 @@
 import { DateTime } from 'luxon'
 import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
-import { BaseModel, column, hasOne } from '@adonisjs/lucid/orm'
+import { BaseModel, column, hasOne, manyToMany } from '@adonisjs/lucid/orm'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
 import SpotifyAccount from './spotify_account.js'
-import type { HasOne } from '@adonisjs/lucid/types/relations'
+import type { HasOne, ManyToMany } from '@adonisjs/lucid/types/relations'
 import { AccessToken, DbAccessTokensProvider } from '@adonisjs/auth/access_tokens'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
@@ -28,6 +28,15 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @hasOne(() => SpotifyAccount)
   declare profile: HasOne<typeof SpotifyAccount>
 
+  @manyToMany(() => User, {
+    pivotTable: 'user_friends',
+    pivotForeignKey: 'user_id',
+    pivotRelatedForeignKey: 'friend_id',
+    pivotColumns: ['status', 'sender'],
+  })
+  declare friends: ManyToMany<typeof User>
+
+  //#region Metadata
   @column.dateTime({
     autoCreate: true,
     serialize: (value: DateTime) => value.toISODate(),
@@ -44,6 +53,6 @@ export default class User extends compose(BaseModel, AuthFinder) {
   declare updatedAt: DateTime
 
   currentAccessToken?: AccessToken
-
   static accessTokens = DbAccessTokensProvider.forModel(User)
+  //#endregion
 }

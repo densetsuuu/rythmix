@@ -1,5 +1,6 @@
 import app from '@adonisjs/core/services/app'
-import { HttpContext, ExceptionHandler } from '@adonisjs/core/http'
+import { ExceptionHandler, HttpContext } from '@adonisjs/core/http'
+import { errors } from '@adonisjs/bouncer'
 
 export default class HttpExceptionHandler extends ExceptionHandler {
   /**
@@ -23,6 +24,9 @@ export default class HttpExceptionHandler extends ExceptionHandler {
    * @note You should not attempt to send a response from this method.
    */
   async report(error: unknown, ctx: HttpContext) {
+    if (error instanceof errors.E_AUTHORIZATION_FAILURE) {
+      return
+    }
     return super.report(error, ctx)
   }
 }

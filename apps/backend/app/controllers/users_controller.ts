@@ -17,7 +17,6 @@ export default class UsersController {
     const user = await this._userService.create(data)
 
     session.flash('success', 'Successfully registered')
-    return response.redirect('/')
   }
 
   async show({ params }: HttpContext) {}

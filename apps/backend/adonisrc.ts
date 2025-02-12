@@ -15,6 +15,7 @@ export default defineConfig({
     () => import('@tuyau/core/commands'),
     () => import('@adonisjs/lucid/commands'),
     () => import('@adocasts.com/dto/commands'),
+    () => import('@adonisjs/bouncer/commands')
   ],
 
   /*
@@ -40,6 +41,7 @@ export default defineConfig({
     () => import('@adonisjs/session/session_provider'),
     () => import('@adonisjs/auth/auth_provider'),
     () => import('@adonisjs/lucid/database_provider'),
+    () => import('@adonisjs/bouncer/bouncer_provider')
   ],
 
   /*

@@ -9,6 +9,7 @@ export const tuyau = createTuyau({
     beforeRequest: [
       async (request) => {
         const token = await AsyncStorage.getItem("token");
+        console.log(token);
         if (token) {
           request.headers.set("Authorization", `Bearer ${token}`);
         }
