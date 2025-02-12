@@ -38,7 +38,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   const isAuthenticated: boolean = !!user;
 
   const login = () => {
-    navigate("http://localhost:3333/auth/redirect");
+    navigate(`${process.env.EXPO_PUBLIC_BACKEND_URL}/auth/redirect`);
   };
 
   const logout = async () => {
