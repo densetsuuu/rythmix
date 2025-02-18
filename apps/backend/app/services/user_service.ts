@@ -18,7 +18,7 @@ export default class UserService {
     return await User.findOrFail(id)
   }
 
-  update(user: User, data: User) {
+  update(user: User, data: Partial<User>) {
     user.merge(data)
     return user.save()
   }
@@ -28,5 +28,9 @@ export default class UserService {
       return null
     }
     return this.find(spotifyAccount.userId)
+  }
+
+  delete(id: string | number) {
+    return User.query().where('id', id).delete()
   }
 }

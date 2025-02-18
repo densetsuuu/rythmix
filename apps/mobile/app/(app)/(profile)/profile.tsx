@@ -6,15 +6,11 @@ import {HStack} from "@/components/ui/hstack";
 import {Progress, ProgressFilledTrack} from "@/components/ui/progress";
 import {Center} from "@/components/ui/center";
 import {Heading} from "@/components/ui/heading";
-import {Image, StyleSheet, TouchableOpacity} from "react-native";
+import {Image, TouchableOpacity} from "react-native";
 import {ChevronRightIcon, EditIcon, ExternalLinkIcon, Icon} from "@/components/ui/icon";
 import {Divider} from "@/components/ui/divider";
 import {router} from "expo-router";
-import {ScreenStackHeaderLeftView} from "react-native-screens";
-import {Simulate} from "react-dom/test-utils";
-import blur = Simulate.blur;
 import {tuyau} from "@/constants/tuyau";
-import {useEffect, useState} from "react";
 import {useQuery} from "@tanstack/react-query";
 
 
@@ -29,8 +25,7 @@ export default function Profile() {
     }
 
     const getCurrentTrack = async () => {
-        let track = await tuyau.currentTrack.$get().unwrap();
-        return track;
+        return await tuyau.currentTrack.$get().unwrap();
     }
 
     const {data: currentTrack, error} = useQuery({
@@ -38,6 +33,12 @@ export default function Profile() {
         queryFn: getCurrentTrack
     });
 
+    const formatDate = (isoString: string): string => {
+        const date = new Date(isoString);
+        return date.toLocaleDateString("fr-FR");
+    };
+
+    console.log(user?.createdAt)
 
     return (
         <VStack className="h-screen w-screen">
@@ -77,13 +78,12 @@ export default function Profile() {
                         <VStack>
                             <HStack className={"items-center"}>
                                 <Icon as={ChevronRightIcon} className="text-typography-500 m-2 w-4 h-4"/>
-                                <Text>Je voulais être comme Gon j'voulais grimper le plus grand arbre mentalité
-                                    KAIZEN</Text>
+                                <Text>{user?.description}</Text>
                             </HStack>
                             <Divider className={"my-1"}/>
                             <HStack className={"items-center"}>
                                 <Icon as={ChevronRightIcon} className="text-typography-500 m-2 w-4 h-4"/>
-                                <Text>Membre depuis le {user?.createdAt}</Text>
+                                <Text>Membre depuis le {formatDate(user?.createdAt!)}</Text>
                             </HStack>
                             <Divider className={"my-1"}/>
                             <VStack space={"md"}>
@@ -92,8 +92,8 @@ export default function Profile() {
                                     <Text>Musique préférée : </Text>
                                 </HStack>
                                 <VStack className={"items-center justify-center"}>
-                                    <Image source={{uri: currentTrack?.item.album.images[0].url}} style={{width: 100, height: 100}}/>
-                                    <Text>{currentTrack?.item.name} - {currentTrack?.item.artists[0].name} </Text>
+                                    <Image source={{uri: currentTrack?.item?.album?.images[0].url}} style={{width: 100, height: 100}}/>
+                                    <Text>{currentTrack?.item?.name} - {currentTrack?.item?.artists[0]?.name} </Text>
                                 </VStack>
                             </VStack>
 

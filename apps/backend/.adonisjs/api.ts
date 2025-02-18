@@ -3,17 +3,11 @@ import type { InferInput } from '@vinejs/vine/types'
 
 type AuthLoginPost = {
   request: MakeTuyauRequest<InferInput<typeof import('../app/validators/auth.ts')['loginValidator']>>
-  response: MakeTuyauResponse<
-    import('../app/controllers/auth_controller.ts').default['login'],
-    true
-  >
+  response: MakeTuyauResponse<import('../app/controllers/auth_controller.ts').default['login'], true>
 }
 type AuthLogoutPost = {
   request: unknown
-  response: MakeTuyauResponse<
-    import('../app/controllers/auth_controller.ts').default['logout'],
-    false
-  >
+  response: MakeTuyauResponse<import('../app/controllers/auth_controller.ts').default['logout'], false>
 }
 type AuthMeGetHead = {
   request: unknown
@@ -21,131 +15,95 @@ type AuthMeGetHead = {
 }
 type SpotifyRedirectGetHead = {
   request: MakeTuyauRequest<InferInput<typeof import('../app/validators/spotify_auth.ts')['spotifyRedirectValidator']>>
-  response: MakeTuyauResponse<import('../app/controllers/spotify_auth_controller.ts').default['redirect'],
-    true
-  >
+  response: MakeTuyauResponse<import('../app/controllers/spotify_auth_controller.ts').default['redirect'], true>
 }
 type SpotifyCallbackGetHead = {
   request: unknown
-  response: MakeTuyauResponse<import('../app/controllers/spotify_auth_controller.ts').default['callback'],
-    false
-  >
+  response: MakeTuyauResponse<import('../app/controllers/spotify_auth_controller.ts').default['callback'], false>
 }
 type UsersGetHead = {
   request: unknown
-  response: MakeTuyauResponse<
-    import('../app/controllers/users_controller.ts').default['index'],
-    false
-  >
+  response: MakeTuyauResponse<import('../app/controllers/users_controller.ts').default['index'], false>
 }
 type UsersPost = {
   request: MakeTuyauRequest<InferInput<typeof import('../app/validators/auth.ts')['registerValidator']>>
-  response: MakeTuyauResponse<
-    import('../app/controllers/users_controller.ts').default['store'],
-    true
-  >
+  response: MakeTuyauResponse<import('../app/controllers/users_controller.ts').default['store'], true>
 }
 type UsersIdGetHead = {
   request: unknown
-  response: MakeTuyauResponse<
-    import('../app/controllers/users_controller.ts').default['show'],
-    false
-  >
+  response: MakeTuyauResponse<import('../app/controllers/users_controller.ts').default['show'], false>
 }
 type UsersIdPutPatch = {
-  request: unknown
-  response: MakeTuyauResponse<
-    import('../app/controllers/users_controller.ts').default['update'],
-    false
-  >
+  request: MakeTuyauRequest<InferInput<typeof import('../app/validators/user.ts')['userEditValidator']>>
+  response: MakeTuyauResponse<import('../app/controllers/users_controller.ts').default['update'], true>
 }
 type UsersIdDelete = {
   request: unknown
-  response: MakeTuyauResponse<
-    import('../app/controllers/users_controller.ts').default['destroy'],
-    false
-  >
+  response: MakeTuyauResponse<import('../app/controllers/users_controller.ts').default['destroy'], false>
 }
 type UsersIdFriendsGetHead = {
-  request: MakeTuyauRequest<
-    InferInput<(typeof import('../app/validators/friend.ts'))['userFriendsRequestValidator']>
-  >
-  response: MakeTuyauResponse<
-    import('../app/controllers/friends_controller.ts').default['index'],
-    true
-  >
+  request: MakeTuyauRequest<InferInput<typeof import('../app/validators/friend.ts')['userFriendsRequestValidator']>>
+  response: MakeTuyauResponse<import('../app/controllers/friends_controller.ts').default['index'], true>
 }
 type UsersIdFriendsPost = {
-  request: MakeTuyauRequest<
-    InferInput<(typeof import('../app/validators/friend.ts'))['sendFriendRequestValidator']>
-  >
-  response: MakeTuyauResponse<
-    import('../app/controllers/friends_controller.ts').default['store'],
-    true
-  >
+  request: MakeTuyauRequest<InferInput<typeof import('../app/validators/friend.ts')['sendFriendRequestValidator']>>
+  response: MakeTuyauResponse<import('../app/controllers/friends_controller.ts').default['store'], true>
 }
 type UsersIdFriendsIdGetHead = {
   request: unknown
-  response: MakeTuyauResponse<
-    import('../app/controllers/friends_controller.ts').default['show'],
-    false
-  >
+  response: MakeTuyauResponse<import('../app/controllers/friends_controller.ts').default['show'], false>
 }
 type UsersIdFriendsIdPutPatch = {
-  request: MakeTuyauRequest<
-    InferInput<(typeof import('../app/validators/friend.ts'))['answerFriendRequestValidator']>
-  >
-  response: MakeTuyauResponse<
-    import('../app/controllers/friends_controller.ts').default['update'],
-    true
-  >
+  request: MakeTuyauRequest<InferInput<typeof import('../app/validators/friend.ts')['answerFriendRequestValidator']>>
+  response: MakeTuyauResponse<import('../app/controllers/friends_controller.ts').default['update'], true>
 }
 type UsersIdFriendsIdDelete = {
-  request: MakeTuyauRequest<
-    InferInput<(typeof import('../app/validators/friend.ts'))['accessUserFriendDetailsValidator']>
-  >
-  response: MakeTuyauResponse<
-    import('../app/controllers/friends_controller.ts').default['destroy'],
-    true
-  >
+  request: MakeTuyauRequest<InferInput<typeof import('../app/validators/friend.ts')['accessUserFriendDetailsValidator']>>
+  response: MakeTuyauResponse<import('../app/controllers/friends_controller.ts').default['destroy'], true>
 }
 type CurrentTrackGetHead = {
   request: unknown
-  response: MakeTuyauResponse<import('../app/controllers/spotify_controller.ts').default['getCurrentTrack']>
+  response: MakeTuyauResponse<import('../app/controllers/spotify_controller.ts').default['getCurrentTrack'], false>
 }
 export interface ApiDefinition {
-  auth: {
-    login: {
-      $url: {}
-      $post: AuthLoginPost
-    }
-    logout: {
-      $url: {}
-      $post: AuthLogoutPost
-    }
-    me: {
-      $url: {}
-      $get: AuthMeGetHead
-      $head: AuthMeGetHead
-    }
-  }
-  spotify: {
-    redirect: {
-      $url: {}
-      $get: SpotifyRedirectGetHead
-      $head: SpotifyRedirectGetHead
-    }
-    callback: {
-      $url: {}
-      $get: SpotifyCallbackGetHead
-      $head: SpotifyCallbackGetHead
-    }
-  }
-  users: {
-    '$url': {}
-    '$get': UsersGetHead
-    '$head': UsersGetHead
-    '$post': UsersPost
+  'auth': {
+    'login': {
+      '$url': {
+      };
+      '$post': AuthLoginPost;
+    };
+    'logout': {
+      '$url': {
+      };
+      '$post': AuthLogoutPost;
+    };
+    'me': {
+      '$url': {
+      };
+      '$get': AuthMeGetHead;
+      '$head': AuthMeGetHead;
+    };
+  };
+  'spotify': {
+    'redirect': {
+      '$url': {
+      };
+      '$get': SpotifyRedirectGetHead;
+      '$head': SpotifyRedirectGetHead;
+    };
+    'callback': {
+      '$url': {
+      };
+      '$get': SpotifyCallbackGetHead;
+      '$head': SpotifyCallbackGetHead;
+    };
+  };
+  'users': {
+    '$url': {
+    };
+    '$get': UsersGetHead;
+    '$head': UsersGetHead;
+    '$post': UsersPost;
     ':id': {
       '$url': {
       };
@@ -154,20 +112,22 @@ export interface ApiDefinition {
       '$put': UsersIdPutPatch;
       '$patch': UsersIdPutPatch;
       '$delete': UsersIdDelete;
-      friends: {
-        '$url': {}
-        '$get': UsersIdFriendsGetHead
-        '$head': UsersIdFriendsGetHead
-        '$post': UsersIdFriendsPost
+      'friends': {
+        '$url': {
+        };
+        '$get': UsersIdFriendsGetHead;
+        '$head': UsersIdFriendsGetHead;
+        '$post': UsersIdFriendsPost;
         ':friendId': {
-          $url: {}
-          $get: UsersIdFriendsIdGetHead
-          $head: UsersIdFriendsIdGetHead
-          $put: UsersIdFriendsIdPutPatch
-          $patch: UsersIdFriendsIdPutPatch
-          $delete: UsersIdFriendsIdDelete
-        }
-      }
+          '$url': {
+          };
+          '$get': UsersIdFriendsIdGetHead;
+          '$head': UsersIdFriendsIdGetHead;
+          '$put': UsersIdFriendsIdPutPatch;
+          '$patch': UsersIdFriendsIdPutPatch;
+          '$delete': UsersIdFriendsIdDelete;
+        };
+      };
     };
   };
   'currentTrack': {
@@ -215,13 +175,6 @@ const routes = [
   },
   {
     params: [],
-    name: 'test',
-    path: '/test',
-    method: ["GET","HEAD"],
-    types: {} as TestGetHead,
-  },
-  {
-    params: [],
     name: 'users.index',
     path: '/users',
     method: ["GET","HEAD"],
@@ -249,56 +202,56 @@ const routes = [
     types: {} as UsersIdPutPatch,
   },
   {
-    params: ['id'],
+    params: ["id"],
     name: 'users.destroy',
     path: '/users/:id',
-    method: ['DELETE'],
+    method: ["DELETE"],
     types: {} as UsersIdDelete,
   },
   {
-    params: ['id'],
+    params: ["id"],
     name: 'users.friends.index',
     path: '/users/:id/friends',
-    method: ['GET', 'HEAD'],
+    method: ["GET","HEAD"],
     types: {} as UsersIdFriendsGetHead,
   },
   {
-    params: ['id'],
+    params: ["id"],
     name: 'users.friends.store',
     path: '/users/:id/friends',
-    method: ['POST'],
+    method: ["POST"],
     types: {} as UsersIdFriendsPost,
   },
   {
-    params: ['id', 'friendId'],
+    params: ["id","friendId"],
     name: 'users.friends.show',
     path: '/users/:id/friends/:friendId',
-    method: ['GET', 'HEAD'],
+    method: ["GET","HEAD"],
     types: {} as UsersIdFriendsIdGetHead,
   },
   {
-    params: ['id', 'friendId'],
+    params: ["id","friendId"],
     name: 'users.friends.update',
     path: '/users/:id/friends/:friendId',
-    method: ['PUT', 'PATCH'],
+    method: ["PUT","PATCH"],
     types: {} as UsersIdFriendsIdPutPatch,
   },
   {
-    params: ['id', 'friendId'],
+    params: ["id","friendId"],
     name: 'users.friends.destroy',
     path: '/users/:id/friends/:friendId',
-    method: ['DELETE'],
+    method: ["DELETE"],
     types: {} as UsersIdFriendsIdDelete,
   },
   {
     params: [],
     name: 'currentTrack',
     path: '/currentTrack',
-    method: ['GET', 'HEAD'],
+    method: ["GET","HEAD"],
     types: {} as CurrentTrackGetHead,
   },
-] as const
+] as const;
 export const api = {
   routes,
-  definition: {} as ApiDefinition,
+  definition: {} as ApiDefinition
 }

@@ -24,7 +24,7 @@ importers:
         version: 9.2.4(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@adonisjs/core@6.15.1(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@vinejs/vine@2.1.0))(@adonisjs/lucid@21.4.0(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@adonisjs/core@6.15.1(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@vinejs/vine@2.1.0))(luxon@3.5.0)(pg@8.13.1))(@adonisjs/session@7.5.0(@adonisjs/core@6.15.1(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@vinejs/vine@2.1.0))(@japa/api-client@2.0.4(@japa/assert@3.0.0(@japa/runner@3.1.4)(openapi-types@1.3.4))(@japa/runner@3.1.4)))(@japa/api-client@2.0.4(@japa/assert@3.0.0(@japa/runner@3.1.4)(openapi-types@1.3.4))(@japa/runner@3.1.4))(@japa/plugin-adonisjs@3.0.1(@adonisjs/core@6.15.1(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@vinejs/vine@2.1.0))(@japa/api-client@2.0.4(@japa/assert@3.0.0(@japa/runner@3.1.4)(openapi-types@1.3.4))(@japa/runner@3.1.4))(@japa/runner@3.1.4))
       '@adonisjs/bouncer':
         specifier: ^3.1.4
-        version: 3.1.4(@adonisjs/core@6.15.1(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@vinejs/vine@2.1.0))
+        version: 3.1.5(@adonisjs/core@6.15.1(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@vinejs/vine@2.1.0))
       '@adonisjs/core':
         specifier: ^6.14.1
         version: 6.15.1(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@vinejs/vine@2.1.0)
@@ -43,6 +43,9 @@ importers:
       '@tuyau/core':
         specifier: ^0.2.1
         version: 0.2.2(@adonisjs/core@6.15.1(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@vinejs/vine@2.1.0))
+      '@types/spotify-web-api-node':
+        specifier: ^5.0.11
+        version: 5.0.11
       '@vinejs/vine':
         specifier: ^2.1.0
         version: 2.1.0
@@ -152,12 +155,21 @@ importers:
       '@gluestack-ui/overlay':
         specifier: ^0.1.16
         version: 0.1.16(react-dom@18.3.1(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+      '@gluestack-ui/progress':
+        specifier: ^0.1.18
+        version: 0.1.18(react-dom@18.3.1(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
       '@gluestack-ui/spinner':
         specifier: ^0.1.15
         version: 0.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@gluestack-ui/toast':
         specifier: ^1.0.8
         version: 1.0.8(react-dom@18.3.1(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+      '@gluestack-ui/tooltip':
+        specifier: ^0.1.37
+        version: 0.1.38(react-dom@18.3.1(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+      '@legendapp/motion':
+        specifier: ^2.4.0
+        version: 2.4.0(dnwuiuflmd2c4zuorexjvom6lm)
       '@react-native-async-storage/async-storage':
         specifier: 1.23.1
         version: 1.23.1(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))
@@ -179,6 +191,9 @@ importers:
       babel-plugin-module-resolver:
         specifier: ^5.0.2
         version: 5.0.2
+      cocoapods:
+        specifier: ^0.0.0
+        version: 0.0.0
       expo:
         specifier: ~52.0.11
         version: 52.0.11(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@expo/metro-runtime@4.0.0(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1)))(react-native-webview@13.12.2(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
@@ -251,6 +266,9 @@ importers:
       react-native-screens:
         specifier: ~4.1.0
         version: 4.1.0(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+      react-native-splash-screen:
+        specifier: ^3.3.0
+        version: 3.3.0(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))
       react-native-svg:
         specifier: 15.8.0
         version: 15.8.0(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
@@ -272,7 +290,7 @@ importers:
         version: 7.26.0
       '@react-native-community/cli':
         specifier: latest
-        version: 16.0.0(typescript@5.6.3)
+        version: 15.1.3(typescript@5.6.3)
       '@types/jest':
         specifier: ^29.5.12
         version: 29.5.14
@@ -436,13 +454,13 @@ packages:
     peerDependencies:
       '@adonisjs/http-server': ^7.0.2
 
-  '@adonisjs/bouncer@3.1.4':
-    resolution: {integrity: sha512-31mERb/pVUIGod0Jh0Ubraemh8r2Psu3+W1A5us3FqGo9WXS5UmJU7jliQgrCoav54NAs5moEFY1KkLsW5z7lw==}
+  '@adonisjs/bouncer@3.1.5':
+    resolution: {integrity: sha512-zgyuHUZeggPjCbcdjbLZl7qfykioLzFnxzAuZrLrvwrMeZhJ7aaYydJQtnGVZjMAAhymjP6JOa32fEd2bqdZZg==}
     engines: {node: '>=18.16.0'}
     peerDependencies:
-      '@adonisjs/core': ^6.2.0
-      '@adonisjs/i18n': ^2.0.0
-      edge.js: ^6.0.2
+      '@adonisjs/core': ^6.17.1
+      '@adonisjs/i18n': ^2.2.0
+      edge.js: ^6.2.1
     peerDependenciesMeta:
       '@adonisjs/core':
         optional: true
@@ -1617,6 +1635,12 @@ packages:
       react: '>=16'
       react-dom: '>=16'
 
+  '@gluestack-ui/progress@0.1.18':
+    resolution: {integrity: sha512-WQCLdvqoiIIQnLBXG7+HDTREMbUfEy9rV7FuBMcBBqEFILuVT1W4hyuXLz/CPrUoCWZJ8OUKvLZvaWWzW8pA9Q==}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+
   '@gluestack-ui/provider@0.1.13':
     resolution: {integrity: sha512-kJaELgfowTBsJ90XIHW70LsvEg5PKdtmrjfmaU+Hea1spAPgPDh1z5gpmfVoUiZipUUdZoiUgnHbkVh5OMar4g==}
     peerDependencies:
@@ -1637,6 +1661,12 @@ packages:
 
   '@gluestack-ui/toast@1.0.8':
     resolution: {integrity: sha512-Lwa8YU6rvmo9JhBAiSJZZoSyuyvZMKnBHcDJc+cPTd6OYybHF4bcEAEXQRQRu86EY0SfU63trCC3hEbXaSFWCg==}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+
+  '@gluestack-ui/tooltip@0.1.38':
+    resolution: {integrity: sha512-3Y2YyVuxhk6+EmxqS4h3kVCIh/fVQQNArbGhvXTn94VkNEG0btqHfLVnI2KlXPJum/Y5TX81V99FuPpLQ/cP+A==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
@@ -1978,6 +2008,21 @@ packages:
   '@jsdevtools/ono@7.1.3':
     resolution: {integrity: sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==}
 
+  '@legendapp/motion@2.4.0':
+    resolution: {integrity: sha512-AAYpRLGvxGD5hIGl9sVHyoUufr66zoH82PuxYcKiPSMdCBI3jwZFWh6CuHjV1leRKVIRk2py1rSvIVabG8eqcw==}
+    peerDependencies:
+      nativewind: '*'
+      react: '>=16'
+      react-native: '*'
+
+  '@legendapp/tools@2.0.1':
+    resolution: {integrity: sha512-Kxt0HWvWElRK6oybHRzcYxdgaKGwuaiRNreS7usW7QuHXRIHaH4yMcW2YNRG4DHE5fpefv+Bno/BohQcCE4FaA==}
+    peerDependencies:
+      react: '>=16'
+    peerDependenciesMeta:
+      react:
+        optional: true
+
   '@lukeed/ms@2.0.2':
     resolution: {integrity: sha512-9I2Zn6+NJLfaGoz9jN3lpwDgAYvfGeNYdbAIjJOqzs4Tpc+VU3Jqq4IofSUBKajiDS8k9fZIg18/z13mpk1bsA==}
     engines: {node: '>=8'}
@@ -2092,6 +2137,10 @@ packages:
   '@poppinss/dumper@0.6.1':
     resolution: {integrity: sha512-SyLqc0cAQxqLEQC1NUZiVguaYbSFmagSn4fK+TvChkqcudorwAWeh2fOtA8NmdQd+DMLQF3Q5w/Ub9/6/tmCyg==}
 
+  '@poppinss/exception@1.2.0':
+    resolution: {integrity: sha512-WLneXKQYNClhaMXccO111VQmZahSrcSRDaHRbV6KL5R4pTvK87fMn/MXLUcvOjk0X5dTHDPKF61tM7j826wrjQ==}
+    engines: {node: '>=20.6.0'}
+
   '@poppinss/hooks@7.2.4':
     resolution: {integrity: sha512-AoKSHC8ts199+PPa/R+XFF1A9FFhbiGibizOp0M54kCzvhwErGNLJd8Yk/b5nzodmsvApX7cjWVKPM5+12r2VA==}
     engines: {node: '>=18.16.0'}
@@ -2114,12 +2163,24 @@ packages:
     resolution: {integrity: sha512-cjgac/0pwk/J+x1Jei/cAHTzstCuZE7KRfmdVhClb9zMUskw477rZPZ86dg1LBghw+IGaPtnAgmxTV9pNWG9ZQ==}
     engines: {node: '>=18.16.0'}
 
+  '@poppinss/object-builder@1.1.0':
+    resolution: {integrity: sha512-FOrOq52l7u8goR5yncX14+k+Ewi5djnrt1JwXeS/FvnwAPOiveFhiczCDuvXdssAwamtrV2hp5Rw9v+n2T7hQg==}
+    engines: {node: '>=20.6.0'}
+
   '@poppinss/prompts@3.1.3':
     resolution: {integrity: sha512-lNAcOcvB7YhfaWYIsu8tatF9V61A0SEu8PGpGx9RqTVmImKhLT0AAcRPr/5z4UQMl7SIf5REQKMJhHK50xakYQ==}
     engines: {node: '>=18.16.0'}
 
+  '@poppinss/string@1.2.0':
+    resolution: {integrity: sha512-1z78zjqhfjqsvWr+pQzCpRNcZpIM+5vNY5SFOvz28GrL/LRanwtmOku5tBX7jE8/ng3oXaOVrB59lnnXFtvkug==}
+    engines: {node: '>=20.6.0'}
+
   '@poppinss/utils@6.8.3':
     resolution: {integrity: sha512-YGeH7pIUm9ExONURNH3xN61dBZ0SXgVuPA9E76t7EHeZHXPNrmR8TlbXQaka6kd5n+cpBNcHG4VsVfYf59bZ7g==}
+    engines: {node: '>=18.16.0'}
+
+  '@poppinss/utils@6.9.2':
+    resolution: {integrity: sha512-ypVszZxhwiehhklM5so2BI+nClQJwp7mBUSJh/R1GepeUH1vvD5GtxMz8Lp9dO9oAbKyDmq1jc4g/4E0dv8r2g==}
     engines: {node: '>=18.16.0'}
 
   '@poppinss/validator-lite@1.0.3':
@@ -2278,44 +2339,53 @@ packages:
     peerDependencies:
       react-native: ^0.0.0-0 || >=0.60 <1.0
 
-  '@react-native-community/cli-clean@16.0.0':
-    resolution: {integrity: sha512-lLwQUAJVcuktJG+65SckXnPCAFOHXeeI3c+avIVD42K2k2ue4Xro6CGLN42Nub+L7hXYXCtwtcKgBGJPKq25bQ==}
+  '@react-native-community/cli-clean@15.1.3':
+    resolution: {integrity: sha512-3s9NGapIkONFoCUN2s77NYI987GPSCdr74rTf0TWyGIDf4vTYgKoWKKR+Ml3VTa1BCj51r4cYuHEKE1pjUSc0w==}
 
-  '@react-native-community/cli-config-android@16.0.0':
-    resolution: {integrity: sha512-M8o99bs+ccveQlQjPj79PZ8Mc0A+8A9xdQwgMrDsMccs3MTF0gFYG6kZ0NlMONFrh3J0iDHQgKDx6K0YqrbGJQ==}
+  '@react-native-community/cli-config-android@15.1.3':
+    resolution: {integrity: sha512-v9okV/WQfMJEWRddI0S6no2v9Lvk54KgFkw1mvMYhJKVqloCNsIWzoqme0u7zIuYSzwsjXUQXVlGiDzbbwdkBw==}
 
-  '@react-native-community/cli-config-apple@16.0.0':
-    resolution: {integrity: sha512-d60xwPvsa+alLUyjhxoR1X7+o2Lb4UuKHZ6Lb6yKBe4nKkgU1sWAoyz/dApTJza15da3Kf8jzPQeE020VNt4ag==}
+  '@react-native-community/cli-config-apple@15.1.3':
+    resolution: {integrity: sha512-Qv6jaEaycv+7s8wR9l9bdpIeSNFCeVANfGCX1x76SgOmGfZNIa7J3l1HaeF/5ktERMYsw/hm4u3rUn4Ks0YV1g==}
 
-  '@react-native-community/cli-config@16.0.0':
-    resolution: {integrity: sha512-Kr4DcrWAOJTe0ii3/u9Wn0YZsAC/PReUmgp56QltvZodOhJK/N+fvovYc9bmCRpZRGLm+Ps3Pc90P1pCM585UQ==}
+  '@react-native-community/cli-config@15.1.3':
+    resolution: {integrity: sha512-fJ9MrWp+/SszEVg5Wja8A57Whl5EfjRCHWFNkvFBtfjVUfi2hWvSTW3VBxzJuCHnPIIwpQafwjEgOrIRUI8y6w==}
+
+  '@react-native-community/cli-debugger-ui@15.1.3':
+    resolution: {integrity: sha512-m+fb9iAUNb9WiDdokCBLh0InJvollcgAM3gLjCT8DGTP6bH/jxtZ3DszzyIRqN9cMamItVrvDM0vkIg48xK7rQ==}
 
   '@react-native-community/cli-debugger-ui@16.0.0':
     resolution: {integrity: sha512-MPt9udyB/RhBmCG4jKDdKF8z3vjOXTPUWEv3K5BSPs6HjBF2oVTXVpP5V4sXhQglHFQOVvTSJzN1bybr3RUYeQ==}
 
-  '@react-native-community/cli-doctor@16.0.0':
-    resolution: {integrity: sha512-gIpr3G1UWDmhZ4ttr0pSZuXP0YWNtYRuc8ORwuuMfKPu6LNv/HFe4bI8JKh1nDHKuEdYMYwFbyXaEhTGvhNUBg==}
+  '@react-native-community/cli-doctor@15.1.3':
+    resolution: {integrity: sha512-WC9rawobuITAtJjyZ68E1M0geRt+b9A2CGB354L/tQp+XMKobGGVI4Y0DsattK83Wdg59GPyldE8C0Wevfgm/A==}
 
-  '@react-native-community/cli-platform-android@16.0.0':
-    resolution: {integrity: sha512-W7nAfUNkA2qvpeeEbNoExrgda/U7nNLJxl2Bb4G1VZ8dWawQNkW6/0YQ4RzNHZJchqNYKD93XrgKhZNw4fwNBg==}
+  '@react-native-community/cli-platform-android@15.1.3':
+    resolution: {integrity: sha512-ZwrBK0UK4DRHoQm2v5m8+PlNHBK5gmibBU6rqNFLo4aZJ2Rufalbv3SF+DukgSyoI9/kI8UVrzSNj17e+HhN5A==}
 
-  '@react-native-community/cli-platform-apple@16.0.0':
-    resolution: {integrity: sha512-nMY5jV9d0bpOumpmUGqIu4ECI/b1hZFmOOpdhgMf5hyV8pSS7MN/gBCzrT4CfQ6wFRQeikcTWqNBW5oZwVvFnA==}
+  '@react-native-community/cli-platform-apple@15.1.3':
+    resolution: {integrity: sha512-awotqCGVcTdeRmTlE3wlsZgNxZUDGojUhPYOVMKejgdCzNM2bvzF8fqhETH2sc64Hbw/tQJg8pYeD4MZR0bHxw==}
 
-  '@react-native-community/cli-platform-ios@16.0.0':
-    resolution: {integrity: sha512-EcLkWeS3dJ/Ghk6Hrirgyfr1m6i6hmXaZw4pugHgDlMOHI5r4PUPWbiQftJlxsFgxw9+CZ0cHurHxstu2vCylQ==}
+  '@react-native-community/cli-platform-ios@15.1.3':
+    resolution: {integrity: sha512-DxM8GYkqjrlGuuGiGjrcvUmKC2xv9zDzHbsc4+S160Nn0zbF2OH1DhMlnIuUeCmQnAO6QFMqU99O120iEzCAug==}
+
+  '@react-native-community/cli-server-api@15.1.3':
+    resolution: {integrity: sha512-kXZ0evedluLt6flWQiI3JqwnW8rSBspOoQ7JVTQYiG5lDHAeL3Om9PjAyiQBg1EZRMjiWZDV7nDxhR+m+6NX5Q==}
 
   '@react-native-community/cli-server-api@16.0.0':
     resolution: {integrity: sha512-AmI85hBXVetM2pQLyyQO9YncWQ1G1wlZ+vdlMF1FZJfM0IWDUbAeXafwyNT3kHwBOesOXawmI1bOI7IEPfLvqg==}
 
+  '@react-native-community/cli-tools@15.1.3':
+    resolution: {integrity: sha512-2RzoUKR+Y03ijBeeSoCSQihyN6dxy3fbHjraO4MheZZUzt/Yd1VMEDd0R5aa6rtiRDoknbHt45RL2GMa8MSaEA==}
+
   '@react-native-community/cli-tools@16.0.0':
     resolution: {integrity: sha512-vFVFLjiAHZqbutd16+TV79Y9LIfjkaIoP62KPvQ9j25mqv9jm+h+sdr4nqKTOV/VFtneAA4sOHygDCOT04iLbw==}
 
-  '@react-native-community/cli-types@16.0.0':
-    resolution: {integrity: sha512-VestLfus39UIXHh3gahkTgujzaI/BFX2WVi/O7WVxGlN6mkx1uQNP9R3vTWRUfQpVocv0MhQg12ioX3wm6DoJg==}
+  '@react-native-community/cli-types@15.1.3':
+    resolution: {integrity: sha512-0ZaM8LMsa7z7swBN+ObL2ysc6aA3AdS698Q6uEukym6RyX1uLbiofUdlvFSMpWSEL3D8f9OTymmL4RkCH8k6dw==}
 
-  '@react-native-community/cli@16.0.0':
-    resolution: {integrity: sha512-tLJLQaKYpebVNFAXmHSAGct36gdYvckLXnxBHo6D5mhhfyZkyR6RvyLM6Uql/V3HXqa19ZZNPJeF1u/i4Abm6g==}
+  '@react-native-community/cli@15.1.3':
+    resolution: {integrity: sha512-+ih/WYUkJsEV2CMAnOHvVoSIz/Ahg5UJk+sqSIOmY79mWAglQzfLP71o7b0neJCnJWLmWiO6G6/S+kmULefD5g==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2688,6 +2758,9 @@ packages:
   '@types/bytes@3.1.4':
     resolution: {integrity: sha512-A0uYgOj3zNc4hNjHc5lYUfJQ/HVyBXiUMKdXd7ysclaE6k9oJdavQzODHuwjpUu2/boCP8afjQYi8z/GtvNCWA==}
 
+  '@types/bytes@3.1.5':
+    resolution: {integrity: sha512-VgZkrJckypj85YxEsEavcMmmSOIzkUHqWmM4CCyia5dc54YwsXzJ5uT4fYxBQNEXx+oF1krlhgCbvfubXqZYsQ==}
+
   '@types/chai@4.3.20':
     resolution: {integrity: sha512-/pC9HAB5I/xMlc5FP77qjCnI16ChlJfW0tGa0IUcFn38VJrTV6DeZ60NU5KZBtaOZqjdpwTWohz5HU1RrhiYxQ==}
 
@@ -2777,6 +2850,12 @@ packages:
 
   '@types/react@18.3.12':
     resolution: {integrity: sha512-D2wOSq/d6Agt28q7rSI3jhU7G6aiuzljDGZ2hTZHIkrTLUI+AF3WMeKkEZ9nN2fkBAlcktT6vcZjDFiIhMYEQw==}
+
+  '@types/spotify-api@0.0.25':
+    resolution: {integrity: sha512-okhoy0U9fPWtwqCfbDyW8VxamhqvXE0gXIVeMOh5HcvEFQvWW2X0VsvdiX/OyiGQpZbZiOJXIGrbnIPfK0AIpA==}
+
+  '@types/spotify-web-api-node@5.0.11':
+    resolution: {integrity: sha512-RS3IkSqH9geC61e8qd+Oy7giOTtiY7ywm0Z4bu5uYuc7XuOcLfDwKjmle85IbpTEdazeCgmIbo8nMLg7WDVvgw==}
 
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
@@ -3574,6 +3653,9 @@ packages:
   co@4.6.0:
     resolution: {integrity: sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==}
     engines: {iojs: '>= 1.0.0', node: '>= 0.12.0'}
+
+  cocoapods@0.0.0:
+    resolution: {integrity: sha512-nsdKucT3oTSvS5s+W3/uxSn57+0e2LxMo2XcTsHwDCdYHB+T21haL11AkioVBACloAMQr00EDBZ//2DnynD9SQ==}
 
   code-block-writer@13.0.3:
     resolution: {integrity: sha512-Oofo0pq3IKnsFtuHqSF7TqBfr71aeyZDVJ0HpmqB7FBM2qEigL0iPONSCZSO9pE9dZTAxANe5XHG9Uy0YMv8cg==}
@@ -6984,6 +7066,11 @@ packages:
       react: '*'
       react-native: '*'
 
+  react-native-splash-screen@3.3.0:
+    resolution: {integrity: sha512-rGjt6HkoSXxMqH4SQUJ1gnPQlPJV8+J47+4yhgTIan4bVvAwJhEeJH7wWt9hXSdH4+VfwTS0GTaflj1Tw83IhA==}
+    peerDependencies:
+      react-native: '>=0.57.0'
+
   react-native-svg@15.8.0:
     resolution: {integrity: sha512-KHJzKpgOjwj1qeZzsBjxNdoIgv2zNCO9fVcoq2TEhTRsVV5DGTZ9JzUZwybd7q4giT/H3RdtqC3u44dWdO0Ffw==}
     peerDependencies:
@@ -7299,6 +7386,9 @@ packages:
 
   secure-json-parse@2.7.0:
     resolution: {integrity: sha512-6aU+Rwsezw7VR8/nyvKTx8QpWH9FrcYiXXlqC4z5d5XQBDRqtbfsRjnwGyqbi3gddNtWHuEk9OANUotL26qKUw==}
+
+  secure-json-parse@3.0.2:
+    resolution: {integrity: sha512-H6nS2o8bWfpFEV6U38sOSjS7bTbdgbCGU9wEM6W14P5H0QOsz94KCusifV44GpHDTu2nqZbuDNhTzu+mjDSw1w==}
 
   selfsigned@2.4.1:
     resolution: {integrity: sha512-th5B4L2U+eGLq1TVh7zNRGBapioSORUeymIydxgFpwww9d2qyKvtuPU2jJuHvYAwwqi2Y596QBL3eEqcPEYL8Q==}
@@ -7687,9 +7777,11 @@ packages:
 
   sudo-prompt@8.2.5:
     resolution: {integrity: sha512-rlBo3HU/1zAJUrkY6jNxDOC9eVYliG6nS4JA8u8KAshITd07tafMc/Br7xQwCSseXwJ2iCcHCE8SNWX3q8Z+kw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   sudo-prompt@9.1.1:
     resolution: {integrity: sha512-es33J1g2HjMpyAhz8lOR+ICmXXAqTuKbuXuUWLhOLew20oN9oUCgCJx615U/v7aioZg7IX5lIh9x34vwneu4pA==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   superagent@8.1.2:
     resolution: {integrity: sha512-6WTxW1EB6yCxV5VFOIPQruWGHqc3yI7hEmZK6h+pyk69Lk/Ut7rLUY6W/ONF2MjBuGjvmMiIpsrVJ2vjrHlslA==}
@@ -8543,9 +8635,9 @@ snapshots:
       qs: 6.13.1
       raw-body: 2.5.2
 
-  '@adonisjs/bouncer@3.1.4(@adonisjs/core@6.15.1(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@vinejs/vine@2.1.0))':
+  '@adonisjs/bouncer@3.1.5(@adonisjs/core@6.15.1(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@vinejs/vine@2.1.0))':
     dependencies:
-      '@poppinss/utils': 6.8.3
+      '@poppinss/utils': 6.9.2
     optionalDependencies:
       '@adonisjs/core': 6.15.1(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@vinejs/vine@2.1.0)
 
@@ -10235,6 +10327,14 @@ snapshots:
     transitivePeerDependencies:
       - react-native
 
+  '@gluestack-ui/progress@0.1.18(react-dom@18.3.1(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@gluestack-ui/utils': 0.1.14(react-dom@18.3.1(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - react-native
+
   '@gluestack-ui/provider@0.1.13(react-dom@18.3.1(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@react-native-aria/interactions': 0.2.13(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
@@ -10265,6 +10365,19 @@ snapshots:
       '@gluestack-ui/transitions': 0.1.11(react-dom@18.3.1(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
       '@gluestack-ui/utils': 0.1.14(react-dom@18.3.1(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
       '@react-native-aria/focus': 0.2.9(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - react-native
+
+  '@gluestack-ui/tooltip@0.1.38(react-dom@18.3.1(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@gluestack-ui/hooks': 0.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@gluestack-ui/overlay': 0.1.16(react-dom@18.3.1(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+      '@gluestack-ui/utils': 0.1.14(react-dom@18.3.1(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+      '@react-native-aria/focus': 0.2.9(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+      '@react-native-aria/interactions': 0.2.13(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
+      '@react-native-aria/overlays': 0.3.14(react-dom@18.3.1(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     transitivePeerDependencies:
@@ -10713,6 +10826,17 @@ snapshots:
 
   '@jsdevtools/ono@7.1.3': {}
 
+  '@legendapp/motion@2.4.0(dnwuiuflmd2c4zuorexjvom6lm)':
+    dependencies:
+      '@legendapp/tools': 2.0.1(react@18.3.1)
+      nativewind: 4.0.36(@babel/core@7.26.0)(react-native-reanimated@3.16.3(@babel/core@7.26.0)(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1))(react-native-safe-area-context@4.12.0(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1))(react-native-svg@15.8.0(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1))(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.15)
+      react: 18.3.1
+      react-native: 0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1)
+
+  '@legendapp/tools@2.0.1(react@18.3.1)':
+    optionalDependencies:
+      react: 18.3.1
+
   '@lukeed/ms@2.0.2': {}
 
   '@next/env@15.0.2': {}
@@ -10808,6 +10932,8 @@ snapshots:
       '@sindresorhus/is': 7.0.1
       supports-color: 9.4.0
 
+  '@poppinss/exception@1.2.0': {}
+
   '@poppinss/hooks@7.2.4': {}
 
   '@poppinss/macroable@1.0.3': {}
@@ -10829,11 +10955,24 @@ snapshots:
       '@poppinss/utils': 6.8.3
       got: 14.4.5
 
+  '@poppinss/object-builder@1.1.0': {}
+
   '@poppinss/prompts@3.1.3':
     dependencies:
       '@poppinss/colors': 4.1.3
       '@poppinss/utils': 6.8.3
       enquirer: 2.4.1
+
+  '@poppinss/string@1.2.0':
+    dependencies:
+      '@lukeed/ms': 2.0.2
+      '@types/bytes': 3.1.5
+      '@types/pluralize': 0.0.33
+      bytes: 3.1.2
+      case-anything: 3.1.0
+      pluralize: 8.0.0
+      slugify: 1.6.6
+      truncatise: 0.0.8
 
   '@poppinss/utils@6.8.3':
     dependencies:
@@ -10849,6 +10988,15 @@ snapshots:
       slash: 5.1.0
       slugify: 1.6.6
       truncatise: 0.0.8
+
+  '@poppinss/utils@6.9.2':
+    dependencies:
+      '@poppinss/exception': 1.2.0
+      '@poppinss/object-builder': 1.1.0
+      '@poppinss/string': 1.2.0
+      flattie: 1.1.1
+      safe-stable-stringify: 2.5.0
+      secure-json-parse: 3.0.2
 
   '@poppinss/validator-lite@1.0.3':
     dependencies:
@@ -11026,30 +11174,30 @@ snapshots:
       merge-options: 3.0.4
       react-native: 0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1)
 
-  '@react-native-community/cli-clean@16.0.0':
+  '@react-native-community/cli-clean@15.1.3':
     dependencies:
-      '@react-native-community/cli-tools': 16.0.0
+      '@react-native-community/cli-tools': 15.1.3
       chalk: 4.1.2
       execa: 5.1.1
       fast-glob: 3.3.2
 
-  '@react-native-community/cli-config-android@16.0.0':
+  '@react-native-community/cli-config-android@15.1.3':
     dependencies:
-      '@react-native-community/cli-tools': 16.0.0
+      '@react-native-community/cli-tools': 15.1.3
       chalk: 4.1.2
       fast-glob: 3.3.2
       fast-xml-parser: 4.5.0
 
-  '@react-native-community/cli-config-apple@16.0.0':
+  '@react-native-community/cli-config-apple@15.1.3':
     dependencies:
-      '@react-native-community/cli-tools': 16.0.0
+      '@react-native-community/cli-tools': 15.1.3
       chalk: 4.1.2
       execa: 5.1.1
       fast-glob: 3.3.2
 
-  '@react-native-community/cli-config@16.0.0(typescript@5.6.3)':
+  '@react-native-community/cli-config@15.1.3(typescript@5.6.3)':
     dependencies:
-      '@react-native-community/cli-tools': 16.0.0
+      '@react-native-community/cli-tools': 15.1.3
       chalk: 4.1.2
       cosmiconfig: 9.0.0(typescript@5.6.3)
       deepmerge: 4.3.1
@@ -11058,19 +11206,26 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@react-native-community/cli-debugger-ui@16.0.0':
+  '@react-native-community/cli-debugger-ui@15.1.3':
     dependencies:
       serve-static: 1.16.2
     transitivePeerDependencies:
       - supports-color
 
-  '@react-native-community/cli-doctor@16.0.0(typescript@5.6.3)':
+  '@react-native-community/cli-debugger-ui@16.0.0':
     dependencies:
-      '@react-native-community/cli-config': 16.0.0(typescript@5.6.3)
-      '@react-native-community/cli-platform-android': 16.0.0
-      '@react-native-community/cli-platform-apple': 16.0.0
-      '@react-native-community/cli-platform-ios': 16.0.0
-      '@react-native-community/cli-tools': 16.0.0
+      serve-static: 1.16.2
+    transitivePeerDependencies:
+      - supports-color
+    optional: true
+
+  '@react-native-community/cli-doctor@15.1.3(typescript@5.6.3)':
+    dependencies:
+      '@react-native-community/cli-config': 15.1.3(typescript@5.6.3)
+      '@react-native-community/cli-platform-android': 15.1.3
+      '@react-native-community/cli-platform-apple': 15.1.3
+      '@react-native-community/cli-platform-ios': 15.1.3
+      '@react-native-community/cli-tools': 15.1.3
       chalk: 4.1.2
       command-exists: 1.2.9
       deepmerge: 4.3.1
@@ -11085,25 +11240,41 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@react-native-community/cli-platform-android@16.0.0':
+  '@react-native-community/cli-platform-android@15.1.3':
     dependencies:
-      '@react-native-community/cli-config-android': 16.0.0
-      '@react-native-community/cli-tools': 16.0.0
+      '@react-native-community/cli-config-android': 15.1.3
+      '@react-native-community/cli-tools': 15.1.3
       chalk: 4.1.2
       execa: 5.1.1
       logkitty: 0.7.1
 
-  '@react-native-community/cli-platform-apple@16.0.0':
+  '@react-native-community/cli-platform-apple@15.1.3':
     dependencies:
-      '@react-native-community/cli-config-apple': 16.0.0
-      '@react-native-community/cli-tools': 16.0.0
+      '@react-native-community/cli-config-apple': 15.1.3
+      '@react-native-community/cli-tools': 15.1.3
       chalk: 4.1.2
       execa: 5.1.1
       fast-xml-parser: 4.5.0
 
-  '@react-native-community/cli-platform-ios@16.0.0':
+  '@react-native-community/cli-platform-ios@15.1.3':
     dependencies:
-      '@react-native-community/cli-platform-apple': 16.0.0
+      '@react-native-community/cli-platform-apple': 15.1.3
+
+  '@react-native-community/cli-server-api@15.1.3':
+    dependencies:
+      '@react-native-community/cli-debugger-ui': 15.1.3
+      '@react-native-community/cli-tools': 15.1.3
+      compression: 1.7.5
+      connect: 3.7.0
+      errorhandler: 1.5.1
+      nocache: 3.0.4
+      pretty-format: 26.6.2
+      serve-static: 1.16.2
+      ws: 6.2.3
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
 
   '@react-native-community/cli-server-api@16.0.0':
     dependencies:
@@ -11120,6 +11291,21 @@ snapshots:
       - bufferutil
       - supports-color
       - utf-8-validate
+    optional: true
+
+  '@react-native-community/cli-tools@15.1.3':
+    dependencies:
+      appdirsjs: 1.2.7
+      chalk: 4.1.2
+      execa: 5.1.1
+      find-up: 5.0.0
+      mime: 2.6.0
+      open: 6.4.0
+      ora: 5.4.1
+      prompts: 2.4.2
+      semver: 7.6.3
+      shell-quote: 1.8.2
+      sudo-prompt: 9.1.1
 
   '@react-native-community/cli-tools@16.0.0':
     dependencies:
@@ -11134,20 +11320,21 @@ snapshots:
       semver: 7.6.3
       shell-quote: 1.8.2
       sudo-prompt: 9.1.1
+    optional: true
 
-  '@react-native-community/cli-types@16.0.0':
+  '@react-native-community/cli-types@15.1.3':
     dependencies:
       joi: 17.13.3
 
-  '@react-native-community/cli@16.0.0(typescript@5.6.3)':
+  '@react-native-community/cli@15.1.3(typescript@5.6.3)':
     dependencies:
-      '@react-native-community/cli-clean': 16.0.0
-      '@react-native-community/cli-config': 16.0.0(typescript@5.6.3)
-      '@react-native-community/cli-debugger-ui': 16.0.0
-      '@react-native-community/cli-doctor': 16.0.0(typescript@5.6.3)
-      '@react-native-community/cli-server-api': 16.0.0
-      '@react-native-community/cli-tools': 16.0.0
-      '@react-native-community/cli-types': 16.0.0
+      '@react-native-community/cli-clean': 15.1.3
+      '@react-native-community/cli-config': 15.1.3(typescript@5.6.3)
+      '@react-native-community/cli-debugger-ui': 15.1.3
+      '@react-native-community/cli-doctor': 15.1.3(typescript@5.6.3)
+      '@react-native-community/cli-server-api': 15.1.3
+      '@react-native-community/cli-tools': 15.1.3
+      '@react-native-community/cli-types': 15.1.3
       chalk: 4.1.2
       commander: 9.5.0
       deepmerge: 4.3.1
@@ -11623,6 +11810,8 @@ snapshots:
 
   '@types/bytes@3.1.4': {}
 
+  '@types/bytes@3.1.5': {}
+
   '@types/chai@4.3.20': {}
 
   '@types/cookie@0.6.0': {}
@@ -11717,6 +11906,12 @@ snapshots:
     dependencies:
       '@types/prop-types': 15.7.13
       csstype: 3.1.3
+
+  '@types/spotify-api@0.0.25': {}
+
+  '@types/spotify-web-api-node@5.0.11':
+    dependencies:
+      '@types/spotify-api': 0.0.25
 
   '@types/stack-utils@2.0.3': {}
 
@@ -12034,7 +12229,7 @@ snapshots:
 
   agent-base@6.0.2:
     dependencies:
-      debug: 4.3.7
+      debug: 4.4.0
     transitivePeerDependencies:
       - supports-color
 
@@ -12710,6 +12905,8 @@ snapshots:
   clsx@2.1.1: {}
 
   co@4.6.0: {}
+
+  cocoapods@0.0.0: {}
 
   code-block-writer@13.0.3: {}
 
@@ -16640,6 +16837,10 @@ snapshots:
       react-native: 0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1)
       warn-once: 0.1.1
 
+  react-native-splash-screen@3.3.0(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1)):
+    dependencies:
+      react-native: 0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1)
+
   react-native-svg@15.8.0(react-native@0.76.3(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@react-native-community/cli-server-api@16.0.0)(@types/react@18.3.12)(react@18.3.1))(react@18.3.1):
     dependencies:
       css-select: 5.1.0
@@ -17031,6 +17232,8 @@ snapshots:
       ajv-keywords: 5.1.0(ajv@8.17.1)
 
   secure-json-parse@2.7.0: {}
+
+  secure-json-parse@3.0.2: {}
 
   selfsigned@2.4.1:
     dependencies:
