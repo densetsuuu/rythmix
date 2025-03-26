@@ -55,10 +55,26 @@ export function RegisterForm() {
     },
   );
 
+  const logInMutation = useMutation({
+    mutationFn: async () => await tuyau.auth.login.$post(userInfo).unwrap(),
+    onSuccess: (data) => {
+        if (data.token) {
+            setToken(data.token);
+        } else {
+            console.error("Token is undefined");
+        }
+        router.replace("/");
+    },
+    onError: (error) => {
+      console.error("Erreur lors de la connexion :", error);
+    },
+});
+
   const signUpMutation = useMutation({
     mutationFn: async () => await tuyau.users.$post(userInfo).unwrap(),
     onSuccess: (data) => {
       console.log("Inscription réussie !", data);
+      logInMutation.mutate();
     },
     onError: (error) => {
       console.error("Erreur lors de l'inscription :", error);
@@ -75,10 +91,6 @@ export function RegisterForm() {
     return await me();
     },
   });
-
-  const handleLoginRedirect = () => {
-    router.push("/login");
-  }
   
   useEffect(() => {
     if (response?.type === "success") {
@@ -87,6 +99,10 @@ export function RegisterForm() {
       router.replace("/");
     }
   }, [response]);
+
+  const handleLoginRedirect = () => {
+    router.push("/login");
+  }
 
   return (
     <VStack className="w-80">

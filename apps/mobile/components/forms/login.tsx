@@ -9,17 +9,10 @@ import {
 import { Input, InputField } from "@/components/ui/input";
 import { Button, ButtonText } from "@/components/ui/button";
 import { HStack } from "@/components/ui/hstack";
-import { Divider } from "@/components/ui/divider";
 import { Text } from "react-native";
-import { Icons } from "@/components/icons";
 import { Link, LinkText } from "@/components/ui/link";
-import * as WebBrowser from "expo-web-browser";
-import { makeRedirectUri, useAuthRequest } from "expo-auth-session";
-import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useAuthStore from "@/components/providers/auth-provider";
-import { randomUUID } from "expo-crypto";
-import { Icon } from "@/components/ui/icon";
 import { PasswordInput } from "@/components/ui/password-input/password-input";
 import { router } from "expo-router";
 import { tuyau } from "@/constants/tuyau";
@@ -61,7 +54,6 @@ export function LoginForm() {
     const handleSignInRedirect = () => {
         router.push("/register");
     };
-
 
     return (
         <VStack className="w-80">
