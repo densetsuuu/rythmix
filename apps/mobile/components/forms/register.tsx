@@ -75,6 +75,10 @@ export function RegisterForm() {
     return await me();
     },
   });
+
+  const handleLoginRedirect = () => {
+    router.push("/login");
+  }
   
   useEffect(() => {
     if (response?.type === "success") {
@@ -89,11 +93,11 @@ export function RegisterForm() {
       <Center className="mb-4">
         <Heading className="font-bold">Welcome!</Heading>
         <HStack className="inline-flex items-center">
-          <Text className="text-slate-500">Already a player?</Text>
-          <Link href="https://gluestack.io/" isExternal className="ml-1">
-            <LinkText className="font-semibold no-underline">Sign in</LinkText>
-          </Link>
-        </HStack>
+              <Text className="text-black font-extralight">Already a player?</Text>
+              <Link onPress={handleLoginRedirect} isExternal className="ml-1">
+              <LinkText className="font-black text-rythmix-primary no-underline">Sign in</LinkText>
+            </Link>
+          </HStack>
       </Center>
       <VStack space="md" className="w-full">
         <FormControl>
