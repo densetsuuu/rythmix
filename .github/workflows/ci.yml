@@ -7,46 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  install_dependencies:
+  ci:
     runs-on: ubuntu-latest
-    outputs:
-      turborepo-cache: ${{ steps.cache.outputs.cache-hit }}
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Install pnpm
-        run: npm install -g pnpm
-
-      - name: Install dependencies with pnpm
-        run: pnpm install
-
-      - name: Cache pnpm dependencies
-        id: cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Cache Turborepo build cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.turbo
-          key: ${{ runner.os }}-turborepo-${{ hashFiles('**/turbo.json') }}
-          restore-keys: |
-            ${{ runner.os }}-turborepo-
-
-  setup_database:
-    runs-on: ubuntu-latest
-    needs: install_dependencies
 
     services:
       postgres:
@@ -60,19 +22,6 @@ jobs:
           - 5432:5432
 
     steps:
-      - name: Wait for PostgreSQL to be ready
-        run: |
-          until pg_isready -h localhost -p 5432 -U postgres; do
-            echo "Waiting for PostgreSQL to be ready..."
-            sleep 2
-          done
-          echo "PostgreSQL is ready!"
-
-  run_tests:
-    runs-on: ubuntu-latest
-    needs: [ install_dependencies, setup_database ]
-
-    steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -82,18 +31,21 @@ jobs:
           node-version: 18
 
       - name: Install pnpm
-        run: npm install -g pnpm  # Installer pnpm ici également pour être sûr qu'il est disponible
+        run: npm install -g pnpm
 
-      - name: Install dependencies with pnpm
+      - name: Debug pnpm
+        run: |
+          pnpm --version
+          which pnpm
+      - name: Install dependencies
         run: pnpm install
 
-      - name: Wait for PostgreSQL to be ready (again in case the service takes a little longer)
+      - name: Wait for PostgreSQL to be ready
         run: |
-          until pg_isready -h localhost -p 5432 -U postgres; do  # Utilisation de 'postgres' comme nom du service
+          until pg_isready -h localhost -p 5432 -U postgres; do
             echo "Waiting for PostgreSQL to be ready..."
             sleep 2
           done
           echo "PostgreSQL is ready!"
-
       - name: Run tests
         run: pnpm test
