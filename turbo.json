@@ -3,6 +3,11 @@
     "//"
   ],
   "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
     "lint": {
       "dependsOn": [
         "^lint"
