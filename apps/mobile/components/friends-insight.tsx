@@ -13,6 +13,8 @@ import { HStack } from "@/components/ui/hstack";
 import { Button, ButtonIcon } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
 import { VStack } from "@/components/ui/vstack";
+import { TouchableOpacity } from "react-native";
+import { Link } from "expo-router";
 
 export function FriendsInsight() {
   const { data: friends, isLoading } = useQuery({
@@ -39,7 +41,7 @@ export function FriendsInsight() {
         <Text bold size="3xl">
           Friends
         </Text>
-        <Text className="text-typography-500">Show all</Text>
+        <Link href={"/friends"}>Show all</Link>
       </HStack>
       <Box className="bg-background-muted rounded-3xl p-6">
         {friends?.length ? (
