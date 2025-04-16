@@ -39,6 +39,12 @@ jobs:
         with:
           name: turbo-cache
           path: .turbo
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Debug artifact list
+        run: |
+          echo "Install done and artifact uploaded."
 
   setup-db:
     runs-on: ubuntu-latest
