@@ -39,7 +39,7 @@ export default function Profile() {
         return date.toLocaleDateString("fr-FR");
     };
 
-    console.log(user?.createdAt)
+// Removed unnecessary console.log statement
 
     const progressValue = 50;
     return (
