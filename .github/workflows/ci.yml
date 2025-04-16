@@ -10,33 +10,32 @@ jobs:
   install:
     runs-on: ubuntu-latest
 
-    outputs:
-      cache-hit: ${{ steps.cache.outputs.cache-hit }}
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'pnpm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - run: npm install -g pnpm
+
+      - name: Restore pnpm store
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Upload artifacts
+      - name: Upload turbo cache
         uses: actions/upload-artifact@v4
         with:
-          name: deps
-          path: |
-            apps/**/node_modules
-            packages/**/node_modules
-            .turbo
-            pnpm-lock.yaml
+          name: turbo-cache
+          path: .turbo
 
   setup-db:
     runs-on: ubuntu-latest
@@ -81,21 +80,28 @@ jobs:
         options: --health-cmd="pg_isready -U postgres" --health-interval=10s --health-timeout=5s --health-retries=5
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'pnpm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - run: npm install -g pnpm
 
-      - name: Download dependencies and cache
+      - name: Restore pnpm store
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - name: Download turbo cache
         uses: actions/download-artifact@v4
         with:
-          name: deps
+          name: turbo-cache
+
+      - name: Reinstall deps (fast with cache)
+        run: pnpm install
 
       - name: Ensure PostgreSQL is ready
         run: |
