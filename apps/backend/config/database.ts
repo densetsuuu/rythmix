@@ -1,5 +1,6 @@
 import env from '#start/env'
 import { defineConfig } from '@adonisjs/lucid'
+import app from '@adonisjs/core/services/app'
 
 const dbConfig = defineConfig({
   connection: 'postgres',
@@ -13,10 +14,20 @@ const dbConfig = defineConfig({
         password: env.get('DB_PASSWORD'),
         database: env.get('DB_DATABASE'),
       },
+      debug: true,
       migrations: {
         naturalSort: true,
+        disableRollbacksInProduction: true,
         paths: ['database/migrations'],
       },
+    },
+    test: {
+      client: 'sqlite',
+      connection: {
+        filename: app.tmpPath('db_test.sql'),
+      },
+      useNullAsDefault: true,
+      migrations: { naturalSort: true, paths: ['database/migrations'] },
     },
   },
 })
