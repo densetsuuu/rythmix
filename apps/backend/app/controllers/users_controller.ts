@@ -2,8 +2,7 @@ import type { HttpContext } from '@adonisjs/core/http'
 import { inject } from '@adonisjs/core'
 import UserService from '#services/user_service'
 import { registerValidator } from '#validators/auth'
-import logger from '@adonisjs/core/services/logger'
-import {userEditValidator} from "#validators/user";
+import { userEditValidator } from '#validators/user'
 
 @inject()
 export default class UsersController {
@@ -26,14 +25,12 @@ export default class UsersController {
     if (!user) {
       return response.status(404).json({ message: 'User not found' })
     }
-    return response.json(user)
+    response.ok(user)
   }
 
   async update({ request, auth, response }: HttpContext) {
     const user = await auth.authenticate()
     const { description } = await request.validateUsing(userEditValidator)
-    logger.info(request.body())
-    logger.info(description)
     await this._userService.update(user, { description: description })
   }
 
@@ -42,6 +39,6 @@ export default class UsersController {
     if (!deleted) {
       return response.status(404).json({ message: 'User not found or not deleted' })
     }
-    return response.json({ message: 'User deleted successfully' })
+    response.ok({ message: 'User deleted successfully' })
   }
 }
