@@ -16,6 +16,9 @@
     "test": {
       "dependsOn": [
         "^test"
+      ],
+      "inputs": [
+        ".env.test"
       ]
     },
     "typecheck": {
@@ -25,10 +28,7 @@
     },
     "dev": {
       "cache": false,
-      "persistent": true,
-      "inputs": [
-        ".env.test"
-      ]
+      "persistent": true
     }
   }
 }
