@@ -20,8 +20,6 @@ jobs:
           POSTGRES_DB: testdb
         ports:
           - 5432:5432
-        # Temps d'attente pour être sûr que la base est bien prête
-        wait-for: 5432
 
     steps:
       - name: Checkout repository
@@ -42,6 +40,14 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Wait for PostgreSQL to be ready
+        run: |
+          until pg_isready -h localhost -p 5432 -U postgres; do
+            echo "Waiting for PostgreSQL to be ready..."
+            sleep 2
+          done
+          echo "PostgreSQL is ready!"
 
       - name: Run tests
         run: pnpm test
