@@ -105,11 +105,17 @@ jobs:
         with:
           path: ~/.pnpm-store
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
-      - name: Download turbo cache
-        uses: actions/download-artifact@v4
+      # Nouvelle étape pour restaurer le cache Turbo
+      - name: Cache Turbo Cache
+        uses: actions/cache@v3
         with:
-          name: turbo-cache
+          path: .turbo              # Cacher le cache de turbo
+          key: turbo-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}  # clé basée sur pnpm-lock.yaml
+          restore-keys: |
+            turbo-${{ runner.os }}-  # Si la clé exacte n'est pas trouvée, essayer un cache similaire
 
       - name: Reinstall dependencies
         run: pnpm install
@@ -123,4 +129,5 @@ jobs:
 
       - name: Run tests
         run: pnpm run test
+
 
