@@ -1,38 +1,19 @@
 {
-  "extends": [
-    "//"
-  ],
-  "tasks": {
+  "pipeline": {
     "build": {
-      "outputs": [
-        "dist/**",
-        "build/**"
-      ],
       "dependsOn": [
         "^build"
-      ]
-    },
-    "lint": {
-      "dependsOn": [
-        "^lint"
-      ]
-    },
-    "test": {
-      "dependsOn": [
-        "^test"
       ],
-      "inputs": [
-        ".env.test"
-      ]
-    },
-    "typecheck": {
-      "dependsOn": [
-        "^typecheck"
+      "outputs": [
+        "dist/**",
+        "build/**",
+        ".expo/**"
       ]
     },
     "dev": {
-      "cache": false,
-      "persistent": true
-    }
+      "cache": false
+    },
+    "lint": {},
+    "test": {}
   }
 }
