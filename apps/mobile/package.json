@@ -3,12 +3,11 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "start": "expo start --clear",
+    "dev": "expo start --clear",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "DARK_MODE=media expo run:android",
     "ios": "DARK_MODE=media expo run:ios",
     "web": "DARK_MODE=media expo start --web",
-    "test": "jest --watchAll",
     "lint": "expo lint"
   },
   "jest": {
