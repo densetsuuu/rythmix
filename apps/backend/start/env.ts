@@ -11,11 +11,17 @@
 
 import { Env } from '@adonisjs/core/env'
 
+const isTestEnv = process.env.NODE_ENV === 'test'
+
 export default await Env.create(new URL('../', import.meta.url), {
   NODE_ENV: Env.schema.enum(['development', 'production', 'test'] as const),
   PORT: Env.schema.number(),
   APP_KEY: Env.schema.string(),
-  APP_URL: Env.schema.string({ format: 'url', protocol: false, tld: false }),
+  APP_URL: Env.schema.string.optionalWhen(isTestEnv, {
+    format: 'url',
+    protocol: false,
+    tld: false,
+  }),
   HOST: Env.schema.string({ format: 'host' }),
   LOG_LEVEL: Env.schema.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace']),
 
@@ -24,11 +30,11 @@ export default await Env.create(new URL('../', import.meta.url), {
   | Variables for configuring database connection
   |----------------------------------------------------------
   */
-  DB_HOST: Env.schema.string({ format: 'host' }),
-  DB_PORT: Env.schema.number(),
-  DB_USER: Env.schema.string(),
-  DB_PASSWORD: Env.schema.string.optional(),
-  DB_DATABASE: Env.schema.string(),
+  DB_HOST: Env.schema.string.optionalWhen(isTestEnv, { format: 'host' }),
+  DB_PORT: Env.schema.number.optionalWhen(isTestEnv),
+  DB_USER: Env.schema.string.optionalWhen(isTestEnv),
+  DB_PASSWORD: Env.schema.string.optionalWhen(isTestEnv),
+  DB_DATABASE: Env.schema.string.optionalWhen(isTestEnv),
 
   /*
   |----------------------------------------------------------
@@ -42,6 +48,6 @@ export default await Env.create(new URL('../', import.meta.url), {
   | Variables for configuring ally package
   |----------------------------------------------------------
   */
-  SPOTIFY_CLIENT_ID: Env.schema.string(),
-  SPOTIFY_CLIENT_SECRET: Env.schema.string()
+  SPOTIFY_CLIENT_ID: Env.schema.string.optionalWhen(isTestEnv),
+  SPOTIFY_CLIENT_SECRET: Env.schema.string.optionalWhen(isTestEnv),
 })

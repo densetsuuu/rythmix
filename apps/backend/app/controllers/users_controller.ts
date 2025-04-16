@@ -3,7 +3,7 @@ import { inject } from '@adonisjs/core'
 import UserService from '#services/user_service'
 import { registerValidator } from '#validators/auth'
 import { userEditValidator, userSearchValidator } from '#validators/user'
-import UserDto from "#dtos/user";
+import UserDto from '#dtos/user'
 
 @inject()
 export default class UsersController {
