@@ -21,7 +21,7 @@ PUT http://localhost:3333/users/1
 Content-Type: application/json
 
 {
-  "description": "caca"
+  "description": "My desc"
 }
 
 ###
