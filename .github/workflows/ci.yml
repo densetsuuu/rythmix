@@ -34,17 +34,16 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Run Turbo Build (to generate .turbo cache)
+        run: pnpm run build  # ou `pnpm run turbo` si c'est ta commande turbo spécifique
+
       - name: Upload turbo cache
         uses: actions/upload-artifact@v4
         with:
           name: turbo-cache
           path: .turbo
-          if-no-files-found: error
+          if-no-files-found: error  # force erreur si pas trouvé
           retention-days: 1
-
-      - name: Debug artifact list
-        run: |
-          echo "Install done and artifact uploaded."
 
   setup-db:
     runs-on: ubuntu-latest
