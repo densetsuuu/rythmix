@@ -1,5 +1,3 @@
-// import type { HttpContext } from '@adonisjs/core/http'
-
 import { inject } from '@adonisjs/core'
 import SpotifyService from '#services/spotify_service'
 import { HttpContext } from '@adonisjs/core/http'
@@ -8,7 +6,7 @@ import { HttpContext } from '@adonisjs/core/http'
 export default class SpotifyController {
   constructor(private _spotifyService: SpotifyService) {}
 
-  async getCurrentTrack({ auth, request }: HttpContext) {
+  async getCurrentTrack({ auth }: HttpContext) {
     const user = await auth.getUserOrFail()
     return await this._spotifyService.getCurrentTrack(user)
   }

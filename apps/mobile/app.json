@@ -29,9 +29,10 @@
         {
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
-          "resizeMode": "contain"
+          "resizeMode": "cover"
         }
-      ]
+      ],
+      "react-native-bottom-tabs"
     ],
     "experiments": {
       "typedRoutes": true
