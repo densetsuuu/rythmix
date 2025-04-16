@@ -34,20 +34,16 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run Turbo Build (to generate .turbo cache)
-        run: pnpm run build  # ou `pnpm run turbo` si c'est ta commande turbo spécifique
-
-      - name: Check if .turbo exists
-        run: |
-          ls -alh .turbo
-
-      - name: Upload turbo cache
-        uses: actions/upload-artifact@v4
+      - name: Cache Turbo Cache
+        uses: actions/cache@v3
         with:
-          name: turbo-cache
-          path: .turbo
-          if-no-files-found: error  # force erreur si pas trouvé
-          retention-days: 1
+          path: .turbo              # Cacher le cache de turbo
+          key: turbo-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}  # clé basée sur pnpm-lock.yaml
+          restore-keys: |
+            turbo-${{ runner.os }}-  # Si la clé exacte n'est pas trouvée, essayer un cache similaire
+
+      - name: Run Turbo Build (to generate .turbo cache)
+        run: pnpm run build
 
   setup-db:
     runs-on: ubuntu-latest
