@@ -168,6 +168,10 @@ module.exports = {
           info: 'rgb(var(--color-indicator-info)/<alpha-value>)',
           error: 'rgb(var(--color-indicator-error)/<alpha-value>)',
         },
+        rythmix: {
+          primary: 'rgb(var(--color-rythmix-primary)/<alpha-value>)',
+          secondary: 'rgb(var(--color-rythmix-secondary)/<alpha-value>)',
+        }
       },
       fontFamily: {
         heading: undefined,

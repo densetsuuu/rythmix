@@ -10,14 +10,11 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.mobile",
-      "backgroundColor": "#222530"
+      "bundleIdentifier": "com.anonymous.mobile"
     },
-    "backgroundColor": "#222530",
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#222530"
+        "foregroundImage": "./assets/images/adaptive-icon.png"
       }
     },
     "web": {
@@ -32,10 +29,10 @@
         {
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#222530"
+          "resizeMode": "cover"
         }
-      ]
+      ],
+      "react-native-bottom-tabs"
     ],
     "experiments": {
       "typedRoutes": true

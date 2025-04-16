@@ -68,6 +68,7 @@
     "@adonisjs/session": "^7.5.0",
     "@rythmix/backend": "file:",
     "@tuyau/core": "^0.2.1",
+    "@types/spotify-web-api-node": "^5.0.11",
     "@vinejs/vine": "^2.1.0",
     "luxon": "^3.5.0",
     "pg": "^8.13.1",

@@ -1,4 +1,3 @@
-import { Box } from "@/components/ui/box";
 import {
   Avatar,
   AvatarBadge,
@@ -15,6 +14,7 @@ import { Icons } from "@/components/icons";
 import { VStack } from "@/components/ui/vstack";
 import { TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
+import {BorderContainer} from "@/components/ui/BorderContainer";
 
 export function FriendsInsight() {
   const { data: friends, isLoading } = useQuery({
@@ -37,13 +37,13 @@ export function FriendsInsight() {
 
   return (
     <VStack space="md">
-      <HStack className="justify-between items-center mx-1">
-        <Text bold size="3xl">
+      <HStack className="justify-between items-center">
+        <Text className="font-black text-black" size="3xl">
           Friends
         </Text>
-        <Link href={"/friends"}>Show all</Link>
+        <Link href={"/friends"} className="uppercase tracking-normal text-rythmix-primary">Show all</Link>
       </HStack>
-      <Box className="bg-background-muted rounded-3xl p-6">
+      <BorderContainer className="px-4 py-6">
         {friends?.length ? (
           <HStack className="items-center justify-between">
             {/* @ts-ignore */}
@@ -76,9 +76,9 @@ export function FriendsInsight() {
             </Button>
           </HStack>
         ) : (
-          <Text>Start making friends !</Text>
+          <Text className="font-extralight text-black" size="md">Start making friends !</Text>
         )}
-      </Box>
+      </BorderContainer>
     </VStack>
   );
 }
