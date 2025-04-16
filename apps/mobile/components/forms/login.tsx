@@ -59,7 +59,7 @@ export function LoginForm() {
 
     return (
         <>
-            <Image alt="Rythmix logo" className="bottom-0 left-0 absolute w-44 z-10 h-64" source={require("../../assets/images/rythmix-logo.png")}/>
+            <Image alt="Rythmix logo" className="bottom-0 left-0 absolute w-44 z-10 h-64" source={require("../../assets/images/adaptive-icon.png")}/>
             <VStack className="bg-white/70 p-12 rounded-3xl border border-white backdrop-blur-3xl">
                 <VStack className="w-80">
                     <View className="mb-4">

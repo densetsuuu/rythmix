@@ -63,7 +63,7 @@ export function RegisterForm() {
 
   return (
       <>
-        <Image alt="Rythmix logo" className="bottom-0 left-0 absolute w-44 z-10 h-64" source={require("../../assets/images/rythmix-logo.png")}/>
+        <Image alt="Rythmix logo" className="bottom-0 left-0 absolute w-44 z-10 h-64" source={require("../../assets/images/adaptive-icon.png")}/>
         <BorderContainer className="p-12">
           <VStack className="w-80">
             <View className="mb-4">
