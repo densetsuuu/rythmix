@@ -37,6 +37,10 @@ jobs:
       - name: Run Turbo Build (to generate .turbo cache)
         run: pnpm run build  # ou `pnpm run turbo` si c'est ta commande turbo spécifique
 
+      - name: Check if .turbo exists
+        run: |
+          ls -alh .turbo
+
       - name: Upload turbo cache
         uses: actions/upload-artifact@v4
         with:
