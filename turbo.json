@@ -4,7 +4,7 @@
   ],
   "tasks": {
     "build": {
-      "output": [
+      "outputs": [
         "dist/**",
         "build/**"
       ],
