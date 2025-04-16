@@ -4,6 +4,10 @@
   ],
   "tasks": {
     "build": {
+      "output": [
+        "dist/**",
+        "build/**"
+      ],
       "dependsOn": [
         "^build"
       ]
