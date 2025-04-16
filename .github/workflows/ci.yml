@@ -32,21 +32,29 @@ jobs:
 
       - name: Build
         run: pnpm build
-  tests:
+  test:
+    name: Test
+    timeout-minutes: 5
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    needs: build
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Check out code
+        uses: actions/checkout@v4
         with:
-          node-version: 21
-      - name: Install pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
-      - name: Install
+          fetch-depth: 2
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
         run: pnpm install
-      - name: Test
-        # `|| true`` is necessary for now. It's looks like a bug: lucid seems to always throws an error when exiting
-        run: FORCE_COLOR=1 NODE_ENV=test pnpm test || true
+
+      - name: Run tests
+        run: pnpm test
