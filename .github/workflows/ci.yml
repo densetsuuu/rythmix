@@ -7,11 +7,11 @@ on:
     branches: [ main ]
 
 jobs:
-  install-and-test:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Setup Node.js
@@ -20,11 +20,17 @@ jobs:
           node-version: 18
           cache: 'pnpm'
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-          run_install: false # important pour garder le contrôle
+      - name: Enable Corepack (to use pnpm)
+        run: corepack enable
+
+      - name: Install pnpm (just in case)
+        run: corepack prepare pnpm@8.15.4 --activate
+
+      - name: Debug pnpm path
+        run: |
+          echo "PNPM version:"
+          pnpm --version
+          which pnpm
 
       - name: Install dependencies
         run: pnpm install
