@@ -37,9 +37,6 @@ jobs:
 
       - name: Build
         run: pnpm build
-
-      - name: Test
-        run: pnpm test
   test:
     name: Test
     timeout-minutes: 5
