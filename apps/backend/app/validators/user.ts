@@ -7,3 +7,9 @@ export const userNestedResourceObject = vine.object({
     id: USER_ID_SHAPE,
   }),
 })
+
+export const userEditValidator = vine.compile(
+  vine.object({
+    description: vine.string(),
+  })
+)

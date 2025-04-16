@@ -10,6 +10,7 @@
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
 
+const SpotifyController = () => import('#controllers/spotify_controller')
 const AuthController = () => import('#controllers/auth_controller')
 const UsersController = () => import('#controllers/users_controller')
 const SpotifyAuthController = () => import('#controllers/spotify_auth_controller')
@@ -32,7 +33,6 @@ router
   })
   .prefix('spotify')
   .as('spotify')
-//#endregion
 
 //#region Users
 router.resource('users', UsersController).apiOnly().use(['destroy', 'update'], middleware.auth())
@@ -46,3 +46,8 @@ router
   .use('*', middleware.auth())
   .apiOnly()
 //#endregion
+
+router
+  .get('currentTrack', [SpotifyController, 'getCurrentTrack'])
+  .as('currentTrack')
+  .use(middleware.auth())

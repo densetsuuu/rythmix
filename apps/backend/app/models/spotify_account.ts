@@ -18,6 +18,9 @@ export default class SpotifyAccount extends BaseModel {
   @column()
   declare name: string
 
+  @column()
+  declare favoriteSongId: string
+
   @column({ serializeAs: null })
   declare email: string
 

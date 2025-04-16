@@ -10,6 +10,7 @@ export default class extends BaseSchema {
       table.string('avatar_url').nullable()
       table.string('nick_name')
       table.string('name')
+      table.string('favorite_song_id')
       table.json('token').notNullable()
       table.string('email').notNullable().unique().primary()
       table.integer('user_id').unsigned().references('users.id').onDelete('CASCADE')

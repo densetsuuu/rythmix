@@ -1,6 +1,8 @@
 import useAuthStore from "@/components/providers/auth-provider";
-import { Redirect, Slot } from "expo-router";
+import {Redirect, Slot} from "expo-router";
 import { useQuery } from "@tanstack/react-query";
+import {Header} from "@/components/header";
+import {ImageBackground, SafeAreaView} from "react-native";
 
 export default function AppLayout() {
   const { me } = useAuthStore();
@@ -22,5 +24,11 @@ export default function AppLayout() {
     return <Redirect href="/register" />;
   }
 
-  return <Slot />;
+  return (<ImageBackground source={require("../../assets/images/background.png")} style={{flex: 1}}>
+              <SafeAreaView className="h-full justify-between flex">
+                  <Header />
+                  <Slot />
+                </SafeAreaView>
+            </ImageBackground>
+      );
 }

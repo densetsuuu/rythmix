@@ -16,6 +16,15 @@ Content-Type: application/json
 }
 
 ###
+### POST Register new user
+PUT http://localhost:3333/users/1
+Content-Type: application/json
+
+{
+  "description": "My desc"
+}
+
+###
 ### POST Login
 POST http://localhost:3333/auth/login
 Content-Type: application/json
