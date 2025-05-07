@@ -11,7 +11,7 @@ import { Text } from "@/components/ui/text";
 import { HStack } from "@/components/ui/hstack";
 import { Button, ButtonIcon } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
-import { VStack } from "@/components/ui/vstack";
+  import { VStack } from "@/components/ui/vstack";
 import { TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
 import {BorderContainer} from "@/components/ui/BorderContainer";
