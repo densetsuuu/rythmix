@@ -11,4 +11,3 @@ export default class SpotifyService {
     return await response.json()
   }
 }
-

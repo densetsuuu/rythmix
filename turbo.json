@@ -1,0 +1,19 @@
+{
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        "build/**",
+        ".expo/**"
+      ]
+    },
+    "dev": {
+      "cache": false
+    },
+    "lint": {},
+    "test": {}
+  }
+}
