@@ -18,7 +18,7 @@ export function PasswordInput({ ...props }: ExtractProps<typeof InputField>) {
           setShowPassword(!showPassword);
         }}
       >
-        <InputIcon as={showPassword ? EyeIcon : EyeOffIcon} color="black" />
+        <InputIcon as={showPassword ? EyeIcon : EyeOffIcon} color="white" size="" />
       </InputSlot>
     </>
   );

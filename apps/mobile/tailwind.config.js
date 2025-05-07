@@ -2,7 +2,7 @@ import gluestackPlugin from "@gluestack-ui/nativewind-utils/tailwind-plugin";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "media",
+  darkMode: 'class',
   content: ["./app/**/*.{tsx,jsx,ts,js}", "./components/**/*.{tsx,jsx,ts,js}"],
   presets: [require('nativewind/preset')],
   safelist: [
@@ -171,6 +171,8 @@ module.exports = {
         rythmix: {
           primary: 'rgb(var(--color-rythmix-primary)/<alpha-value>)',
           secondary: 'rgb(var(--color-rythmix-secondary)/<alpha-value>)',
+          white: 'rgb(var(--color-rythmix-white)/<alpha-value>)',
+          black: 'rgb(var(--color-rythmix-black)/<alpha-value>)',
         }
       },
       fontFamily: {

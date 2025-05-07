@@ -25,17 +25,17 @@ WebBrowser.maybeCompleteAuthSession();
 
 export function LoginForm() {
     const { me, setToken } = useAuthStore();
-    const [ response ] = useAuthRequest(
-        {
-            clientId: "CLIENT_ID",
-            redirectUri: makeRedirectUri({
-                native: "rythmix://",
-            }),
-            state: randomUUID(),
-        },
-        {
-            authorizationEndpoint: "http://localhost:3333/spotify/redirect",
-        },
+    const [request, response, promptAsync] = useAuthRequest(
+      {
+          clientId: "CLIENT_ID",
+          redirectUri: makeRedirectUri({
+              native: "rythmix://",
+          }),
+          state: randomUUID(),
+      },
+      {
+          authorizationEndpoint: `${process.env.EXPO_PUBLIC_BACKEND_URL}/spotify/redirect`,
+      },
     );
 
     const { } = useQuery<MeResponse>({
@@ -45,7 +45,7 @@ export function LoginForm() {
         },
     });
 
-    const handleLoginRedirect = () => {
+    const handleRegisterRedirect = () => {
         router.push("/register");
     }
 
@@ -59,56 +59,48 @@ export function LoginForm() {
 
     return (
         <>
-            <Image alt="Rythmix logo" className="bottom-0 left-0 absolute w-44 z-10 h-64" source={require("../../assets/images/adaptive-icon.png")}/>
-            <VStack className="bg-white/70 p-12 rounded-3xl border border-white backdrop-blur-3xl">
-                <VStack className="w-80">
+            <Image alt="Rythmix logo" className="bottom-[-195px] left-[-50px] absolute w-64 z-10 h-96" source={require("../../assets/images/adaptive-icon.png")}/>
+                <VStack className="w-96">
                     <View className="mb-4">
-                        <Heading size="4xl" className="font-black">Hi !</Heading>
+                        <Heading size="4xl" className="text-rythmix-white font-black">Hi !</Heading>
                         <HStack className="inline-flex items-center">
-                            <Text className="text-black font-extralight">First time playing?</Text>
-                            <Link onPress={handleLoginRedirect} isExternal className="ml-1">
-                                <LinkText className="font-black text-rythmix-primary no-underline">Sign up</LinkText>
+                            <Text className="text-rythmix-white">First time playing?</Text>
+                            <Link onPress={handleRegisterRedirect} isExternal className="ml-1">
+                                <LinkText className="font-black text-rythmix-primary underline">Sign in</LinkText>
                             </Link>
                         </HStack>
                     </View>
                     <VStack space="xl" className="w-full">
                         <FormControl>
                             <FormControlLabel>
-                                <FormControlLabelText className="font-black">Email</FormControlLabelText>
+                                <FormControlLabelText className="text-rythmix-white text-2xl font-black">Email</FormControlLabelText>
                             </FormControlLabel>
-                            <Input className="border-[3px] rounded-none border-black h-14">
-                                <InputField placeholder="johndoe@gmail.com"></InputField>
+                            <Input className="border-[6px] text-rythmix-white border-white rounded-none h-[68px]">
+                                <InputField className={"text-rythmix-white"} placeholder="johndoe@gmail.com"></InputField>
                             </Input>
                         </FormControl>
                         <FormControl>
                             <FormControlLabel>
-                                <FormControlLabelText className="font-black">Password</FormControlLabelText>
+                                <FormControlLabelText className="text-rythmix-white text-2xl font-black">Password</FormControlLabelText>
                             </FormControlLabel>
-                            <Input className="border-[3px] rounded-none border-black h-14">
-                                <PasswordInput placeholder="Enter your password"/>
+                            <Input className="border-[6px] rounded-none text-white border-white h-[68px]">
+                                <PasswordInput className={"text-rythmix-white"} placeholder="Enter your password"/>
                             </Input>
                         </FormControl>
-                        <View style={{
-                            shadowColor: 'black',
-                            shadowOffset: { width: 2, height: 2 }, // Légèrement en bas et sur les côtés
-                            shadowOpacity: 0.4,
-                            shadowRadius: 3,
-                            elevation: 3, // Pour Android
-                        }}>
+                        <View style={{ boxShadow: "0px 4px 4px 0px #00000025" }} >
                             <LinearGradient
-                              className="h-14"
+                              className="h-[60px]"
                               colors={["#FF2C00","#FE63FF", "#9899FF"]}
                               start={[0, 1]}
                               end={[1, 0]}
                             >
-                                <Button className="text-white bg-transparent justify-center items-center h-full uppercase font-black">
-                                    <ButtonText className="uppercase text-xl font-black">Sign in</ButtonText>
+                                <Button className="text-rythmix-dark bg-transparent justify-center items-center h-full uppercase font-black">
+                                    <ButtonText className="uppercase text-4xl font-black">Sign in</ButtonText>
                                 </Button>
                             </LinearGradient>
                         </View>
                     </VStack>
                 </VStack>
-            </VStack>
         </>
     );
 }

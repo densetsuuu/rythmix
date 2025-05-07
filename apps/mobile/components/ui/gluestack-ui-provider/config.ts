@@ -157,6 +157,9 @@ export const config = {
     /* Custom */
     '--color-rythmix-primary': '255 44 0',
     '--color-rythmix-secondary': '152 153 255',
+
+    '--color-rythmix-white': '255 255 255',
+    '--color-rythmix-black': '0 0 0',
   }),
   dark: vars({
     '--color-primary-0': '130 130 130',
@@ -309,5 +312,11 @@ export const config = {
     '--color-indicator-primary': '247 247 247',
     '--color-indicator-info': '161 199 245',
     '--color-indicator-error': '232 70 69',
+
+
+    '--color-rythmix-primary': '255 44 0',
+    '--color-rythmix-secondary': '152 153 255',
+    '--color-rythmix-white': '255 255 255',
+    '--color-rythmix-black': '0 0 0',
   }),
 };

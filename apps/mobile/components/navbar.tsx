@@ -10,26 +10,28 @@ import { HStack } from "@/components/ui/hstack";
 import useAuthStore from "@/components/providers/auth-provider";
 import { Icons } from "@/components/icons";
 import {Link} from "expo-router";
-import {View} from "react-native";
+import {SafeAreaView, View} from "react-native";
 import {LinearGradient} from "@/components/LinearGradient";
+import {Header} from "@/components/header";
 
 export function Navbar() {
   const { user, logout } = useAuthStore();
 
   return (
-    <HStack style={{ boxShadow: "0px 4px 6px 2px #FF2C0025, 0px -4px 6px 2px #FF2C0025" }}
-            className="w-full items-center justify-between bg-white px-6 h-32 mt-[-20]">
-      <HStack className="items-center" space={"md"}>
+    <SafeAreaView>
+      <Header />
+      <HStack className="bg-rythmix-black mt-[-20] w-full items-center justify-between px-6 h-32" style={{ boxShadow: "0px 8px 25px 10px #FF2C0099, 0px -4px 6px 2px #FF2C0025" }}>
+        <HStack className="items-center" space={"md"}>
         {user ? (
             <Link href={'/profile'}>
               <View className="relative">
                 <LinearGradient
                   className="rounded-full p-1"
-                  colors={["#FF2C00", "#9899FF"]}
+                  colors={["#FF2C00", "#FF2C00"]}
                   start={[0, 1]}
                   end={[1, 0]}
                 >
-                  <Avatar size="xl" className="p-[2px] bg-white">
+                  <Avatar size="xl" className="p-[2px] bg-rythmix-black">
                     <AvatarFallbackText>
                       {user.username.toUpperCase()}
                     </AvatarFallbackText>
@@ -45,21 +47,28 @@ export function Navbar() {
 
         ) : null}
         <VStack>
-          <Text className="font-black text-black" size="2xl">
+          <Text className="font-black text-rythmix-white" size="2xl">
             {user?.username}
           </Text>
-          <Text size="lg" className="font-extralight text-black">Level 4</Text>
+          <Text size="lg" className="font-regular text-rythmix-white">Level 4</Text>
         </VStack>
       </HStack>
-      <Button
-        onPress={() => logout()}
-        size="lg"
-        variant="solid"
-        style={{ boxShadow: "0px 4px 4px 0px #00000025" }}
-        className="bg-rythmix-primary rounded-none size-10"
-      >
-        <ButtonIcon as={Icons.logout} className="text-white" />
-      </Button>
-    </HStack>
+        <LinearGradient
+          colors={['white', '#FF2C00']}
+          start={{ x: 0, y: 1 }}
+          end={{ x: 1, y: 0 }}
+          className={"p-[3px]"}
+        >
+        <Button
+          onPress={() => logout()}
+          size="lg"
+          variant="solid"
+          className="bg-rythmix-primary rounded-none size-10"
+        >
+          <ButtonIcon as={Icons.logout} className="text-rythmix-white" />
+        </Button>
+        </LinearGradient>
+      </HStack>
+    </SafeAreaView>
   );
 }
