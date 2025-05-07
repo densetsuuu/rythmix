@@ -1,6 +1,7 @@
 import { BaseModelDto } from '@adocasts.com/dto/base'
 import User from '#models/user'
 import SpotifyAccountDto from '#dtos/spotify_account'
+import Room from '#models/room'
 
 export default class UserDto extends BaseModelDto {
   declare id: string
@@ -11,6 +12,7 @@ export default class UserDto extends BaseModelDto {
   declare createdAt: string
   declare updatedAt: string
   declare description: string | null
+  declare room: Room | null
 
   constructor(user?: User) {
     super()
@@ -24,5 +26,6 @@ export default class UserDto extends BaseModelDto {
     this.createdAt = user.createdAt.toISO()!
     this.updatedAt = user.updatedAt.toISO()!
     this.description = user.description
+    this.room = null
   }
 }
