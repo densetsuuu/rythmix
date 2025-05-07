@@ -2,14 +2,19 @@ import type { HttpContext } from '@adonisjs/core/http'
 import { inject } from '@adonisjs/core'
 import UserService from '#services/user_service'
 import { registerValidator } from '#validators/auth'
-import { userEditValidator } from '#validators/user'
+import { userEditValidator, userSearchValidator } from '#validators/user'
+import UserDto from "#dtos/user";
 
 @inject()
 export default class UsersController {
   constructor(private _userService: UserService) {}
 
-  async index({}: HttpContext) {
-    return await this._userService.all()
+  async index({ request }: HttpContext) {
+    const { query } = await request.validateUsing(userSearchValidator)
+    if (query) {
+      return UserDto.fromArray(await this._userService.findByName(query))
+    }
+    return UserDto.fromArray(await this._userService.all())
   }
 
   async store({ request, session, response }: HttpContext) {
