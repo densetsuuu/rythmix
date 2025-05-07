@@ -1,11 +1,12 @@
 import { DateTime } from 'luxon'
 import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
-import { BaseModel, column, hasOne, manyToMany } from '@adonisjs/lucid/orm'
+import { BaseModel, belongsTo, column, hasOne, manyToMany } from '@adonisjs/lucid/orm'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
 import SpotifyAccount from './spotify_account.js'
-import type { HasOne, ManyToMany } from '@adonisjs/lucid/types/relations'
+import type { BelongsTo, HasOne, ManyToMany } from '@adonisjs/lucid/types/relations'
 import { AccessToken, DbAccessTokensProvider } from '@adonisjs/auth/access_tokens'
+import Room from '#models/room'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   uids: ['email'],
@@ -38,6 +39,12 @@ export default class User extends compose(BaseModel, AuthFinder) {
     pivotColumns: ['status', 'sender'],
   })
   declare friends: ManyToMany<typeof User>
+
+  @belongsTo(() => Room)
+  declare room: BelongsTo<typeof Room>
+
+  @column({})
+  declare roomId: string
 
   //#region Metadata
   @column.dateTime({

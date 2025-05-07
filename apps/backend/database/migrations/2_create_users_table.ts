@@ -12,6 +12,7 @@ export default class extends BaseSchema {
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
       table.string('description').nullable()
+      table.integer('room_id').unsigned().references('id').inTable('rooms').onDelete('SET NULL')
     })
   }
 
