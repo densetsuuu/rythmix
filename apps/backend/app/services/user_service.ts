@@ -18,6 +18,10 @@ export default class UserService {
     return await User.findOrFail(id)
   }
 
+  async findByName(name: string) {
+    return await User.query().whereILike('username', `%${name}%`).exec()
+  }
+
   update(user: User, data: Partial<User>) {
     user.merge(data)
     return user.save()

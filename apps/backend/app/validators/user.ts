@@ -13,3 +13,9 @@ export const userEditValidator = vine.compile(
     description: vine.string(),
   })
 )
+
+export const userSearchValidator = vine.compile(
+  vine.object({
+    query: vine.string().optional(),
+  })
+)
