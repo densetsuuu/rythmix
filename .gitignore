@@ -1,5 +1,12 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# project relative
+.expo
+.idea
+.vscode
+.turbo
+
+
 # compiled output
 dist
 tmp
@@ -10,7 +17,7 @@ node_modules
 
 # env
 .env
-/**/.env.test
+.env*.local
 
 # IDEs and editors
 /.idea
@@ -41,6 +48,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-.nx/cache
-.nx/workspace-data
