@@ -138,9 +138,9 @@ export function RegisterForm() {
               </FormControl>
               <FormControl>
                 <FormControlLabel>
-                  <FormControlLabelText className="font-black">Username</FormControlLabelText>
+                  <FormControlLabelText className="text-rythmix-white text-2xl font-black">Username</FormControlLabelText>
                 </FormControlLabel>
-                <Input className="border-[3px] border-black rounded-none h-14" >
+                <Input className="border-[6px] border-white rounded-none h-[68px]" >
                   <InputField className={"text-rythmix-white"} placeholder="username" value={userInfo.username} onChangeText={(e)=>setUserInfo((prevUser)=>({...prevUser,username:e}))}></InputField>
                 </Input>
               </FormControl>
