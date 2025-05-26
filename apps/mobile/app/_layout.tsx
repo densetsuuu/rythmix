@@ -9,22 +9,23 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
 
-import { useColorScheme } from "@/hooks/useColorScheme";
+import { colorScheme } from "nativewind";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 
 import "../global.css";
 import ReactQueryProvider from "@/components/providers/query-client-provider";
-import {ImageBackground} from "react-native";
+import {Appearance, ImageBackground} from "react-native";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+colorScheme.set("dark");
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+
+
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
-
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
@@ -37,14 +38,12 @@ export default function RootLayout() {
 
   return (
     <ReactQueryProvider>
-      <GluestackUIProvider>
-        <ImageBackground source={require("../assets/images/background.png")} style={{flex: 1}}>
-            <ThemeProvider
-                value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
-            >
-                <Slot/>
-            </ThemeProvider>
-        </ImageBackground>
+      <GluestackUIProvider style={{backgroundColor: "black"}}>
+          <ThemeProvider
+              value={colorScheme.get() === "dark" ? DarkTheme : DefaultTheme}
+          >
+              <Slot/>
+          </ThemeProvider>
       </GluestackUIProvider>
     </ReactQueryProvider>
   );

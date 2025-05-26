@@ -11,17 +11,17 @@ export function Stats() {
     const progressValue = 90;
 
     return (
-        <VStack space={"md"}>
+        <VStack space={"md"} className={"mt-4"}>
             <HStack className="justify-between items-center">
-                <Text className="font-black text-black" size="3xl">
+                <Text className="font-black text-rythmix-white" size="4xl">
                     Stats & trophies
                 </Text>
                 <Text className="uppercase tracking-normal text-rythmix-primary">Show all</Text>
             </HStack>
             <VStack space={"md"}>
-                <BorderContainer className="px-4 py-8 justify-center gap-6">
+                <View className="px-4 py-8 justify-center gap-6 border-rythmix-white border-[6px]">
                     <HStack className="items-center gap-4">
-                        <Text className="font-extralight text-black" size="md">Level 4</Text>
+                        <Text className="font-regular text-rythmix-white" size="md">Level 4</Text>
                         <Progress value={progressValue} size="md" orientation="horizontal" className="flex-1">
                             <ProgressFilledTrack>
                                 <View style={{ flex: 1, height: "100%", borderRadius: 4, overflow: "hidden" }}>
@@ -43,21 +43,25 @@ export function Stats() {
                                 </View>
                             </ProgressFilledTrack>
                         </Progress>
-                        <Text className="font-extralight text-black" size="md">Upper level</Text>
+                        <Text className="font-regular text-rythmix-white" size="md">Upper level</Text>
                     </HStack>
-                </BorderContainer>
-                <BorderContainer className="px-4 py-6 justify-center gap-6">
+                </View>
+                <View className="relative px-4 py-6 justify-center gap-6 border-rythmix-white border-[6px]">
                     <HStack className="items-center justify-between gap-4">
-                        <Text className="font-extralight text-black" size="md">You have unlocked a new trophy !</Text>
-                            <GradientText
-                              variant="primary"
-                              className="font-black uppercase text-2xl"
-                              shadow={true}
-                            >
-                                New !
-                            </GradientText>
+                        <Text className=" font-regular w-full text-rythmix-white" size="md">You have unlocked a new trophy !</Text>
                     </HStack>
-                </BorderContainer>
+                    <View className={"absolute right-0 transform rotate-12"}>
+                        <GradientText
+                          variant="primary"
+                          className="font-black uppercase text-4xl"
+                          border
+                          style={{ fontSize : 64}}
+                        >
+                            New !
+                        </GradientText>
+                    </View>
+
+                </View>
             </VStack>
         </VStack>
     );

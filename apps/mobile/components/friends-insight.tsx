@@ -38,7 +38,7 @@ export function FriendsInsight() {
   return (
     <VStack space="md">
       <HStack className="justify-between items-center">
-        <Text className="font-black text-black" size="3xl">
+        <Text className="font-black text-rythmix-white" size="4xl">
           Friends
         </Text>
         <Link href={"/friends"} className="uppercase tracking-normal text-rythmix-primary">Show all</Link>
@@ -76,7 +76,7 @@ export function FriendsInsight() {
             </Button>
           </HStack>
         ) : (
-          <Text className="font-extralight text-black" size="md">Start making friends !</Text>
+          <Text className="font-extralight text-rythmix-black dark:text-rythmix-white" size="md">Start making friends !</Text>
         )}
       </BorderContainer>
     </VStack>
