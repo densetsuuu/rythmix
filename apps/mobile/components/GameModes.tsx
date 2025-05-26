@@ -4,9 +4,15 @@ import {HStack} from "@/components/ui/hstack";
 import {BorderContainer} from "@/components/ui/BorderContainer";
 import {Heading} from "@/components/ui/heading";
 import {Button, ButtonText} from "@/components/ui/button";
+import { router } from "expo-router";
 
 
 export function GameModes() {
+
+    const handleRedirect = ( gamemode: string ) => {
+        router.replace(`/game?gamemode=${gamemode}`);
+    }
+
   return (
     <VStack space={"md"}>
         <Text className="font-black text-black" size="3xl">
@@ -20,7 +26,7 @@ export function GameModes() {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                     </Text>
                 </VStack>
-                <Button style={{ boxShadow: "0px 4px 4px 0px #00000025" }} size="lg" className="bg-rythmix-primary rounded-none">
+                <Button onPress={() => handleRedirect("TrackWars")} style={{ boxShadow: "0px 4px 4px 0px #00000025" }} size="lg" className="bg-rythmix-primary rounded-none">
                     <ButtonText size="xl" className="uppercase font-black">Start</ButtonText>
                 </Button>
             </BorderContainer>
@@ -31,7 +37,7 @@ export function GameModes() {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                     </Text>
                 </VStack>
-                <Button size="lg" style={{ boxShadow: "0px 4px 4px 0px #00000025" }} className="bg-rythmix-secondary rounded-none">
+                <Button onPress={() => handleRedirect("BlindRythm")} size="lg" style={{ boxShadow: "0px 4px 4px 0px #00000025" }} className="bg-rythmix-secondary rounded-none">
                     <ButtonText size="xl" className="uppercase font-black">Start</ButtonText>
                 </Button>
             </BorderContainer>

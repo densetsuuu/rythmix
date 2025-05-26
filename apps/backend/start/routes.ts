@@ -47,6 +47,7 @@ router
   .apiOnly()
 //#endregion
 
+
 router
   .get('currentTrack', [SpotifyController, 'getCurrentTrack'])
   .as('currentTrack')
