@@ -1,0 +1,76 @@
+import { VStack } from "@/components/ui/vstack";
+import { Button, ButtonText } from "@/components/ui/button";
+import FriendsItem from "./friendItem";
+import useAuthStore from "@/components/providers/auth-provider";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { tuyau } from "@/constants/tuyau";
+import { Text } from "@/components/ui/text";
+import { View } from 'react-native';
+import {LinearGradient} from "expo-linear-gradient";
+
+export default function FriendRequestsTab() {
+  const { user } = useAuthStore();
+  const queryClient = useQueryClient();
+
+  const { data: friends } = useQuery({
+    queryKey: ["friends"],
+    queryFn: async () => {
+      const [, pending] = await Promise.all([
+        Promise.resolve([]),
+        tuyau.users({ id: user!.id }).friends.$get({ query: { status: "pending" } }).unwrap(),
+      ]);
+      return pending;
+    },
+  });
+
+  const acceptFriendMutation = useMutation({
+    mutationFn: async (friendId: string) =>
+      await tuyau.users({ id: user!.id }).friends({ friendId }).$put({ action: "accept" }).unwrap(),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["friends"] });
+    },
+  });
+
+  const rejectFriendMutation = useMutation({
+    mutationFn: async (friendId: string) =>
+      await tuyau.users({ id: user!.id }).friends({ friendId }).$put({ action: "reject" }).unwrap(),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["friends"] });
+    },
+  });
+
+  return (
+    <VStack space="md">
+      {friends?.map((friend) => (
+        <VStack key={friend.id}>
+
+          <View className="flex-1">
+            <FriendsItem avatarUrl={friend.profile?.avatarUrl} username={friend.username} />
+          </View>
+
+          {!friend.sender && (
+            <>
+              <View className="flex-1">
+                <LinearGradient
+                  className="h-auto"
+                  colors={["#FF2C00","#FE63FF", "#9899FF"]}
+                  start={[0, 1]}
+                  end={[1, 0]}
+                  >
+                  <Button className="text-rythmix-dark bg-transparent uppercase h-10 flex-1" onPress={() => acceptFriendMutation.mutate(friend.id)}> 
+                    <ButtonText>Accepter</ButtonText>
+                  </Button>
+                </LinearGradient>
+
+                <Button className="text-rythmix-dark bg-transparent uppercase h-10 flex-1" onPress={() => rejectFriendMutation.mutate(friend.id)}>
+                  <ButtonText>Refuser</ButtonText>
+                </Button>
+            </View>
+            </>
+          )}
+
+        </VStack>
+      ))}
+    </VStack>
+  );
+}

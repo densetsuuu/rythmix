@@ -34,8 +34,7 @@ const FriendsItem: React.FC<FriendsItemProps> = (props) => {
     };
 
     return (
-      <HStack style={{ boxShadow: "0px 4px 6px 2px #FF2C0025, 0px -4px 6px 2px #FF2C0025" }}
-            className="w-full items-center justify-between bg-white px-6 h-32 mt-[-20]">
+      <HStack className="w-full items-center justify-between bg-transparent px-6 h-32 mt-[-20]">
         <HStack className="items-center" space={"md"}>
               <Link href={'/profile'}>
                 <View className="relative">
@@ -45,7 +44,7 @@ const FriendsItem: React.FC<FriendsItemProps> = (props) => {
                     start={[0, 1]}
                     end={[1, 0]}
                   >
-                    <Avatar size="xl" className="p-[2px] bg-white">
+                    <Avatar size="lg" className="p-[2px] bg-white">
                       <AvatarFallbackText>
                         {props.username.toUpperCase()}
                       </AvatarFallbackText>
@@ -53,17 +52,16 @@ const FriendsItem: React.FC<FriendsItemProps> = (props) => {
                     </Avatar>
                   </LinearGradient>
 
-                  {/* Badge vert positionné en absolute */}
                   <View className="absolute bottom-1 right-1 w-6 h-6 bg-green-700 rounded-full border-2 border-white z-50" />
                 </View>
 
               </Link>
 
           <VStack>
-            <Text className="font-black text-black" size="2xl">
+            <Text className="font-white text-white" size="lg">
               {props.username}
             </Text>
-            <Text size="lg" className="font-extralight text-black">Level 4</Text>
+            <Text size="md" className="font-extralight text-white">Level 4</Text>
           </VStack>
         </HStack>
     </HStack>
