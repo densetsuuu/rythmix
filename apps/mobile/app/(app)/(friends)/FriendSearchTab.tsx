@@ -61,7 +61,7 @@ export default function FriendSearchTab() {
               start={[0, 1]}
               end={[1, 0]}
               >
-                <Button className="text-rythmix-dark bg-transparent uppercase h-10"> 
+                <Button className="text-rythmix-dark bg-transparent uppercase h-10" onPress={() => addFriendMutation.mutate(user.id)}>
                   <ButtonText>Ajouter</ButtonText>
                 </Button>
               </LinearGradient>

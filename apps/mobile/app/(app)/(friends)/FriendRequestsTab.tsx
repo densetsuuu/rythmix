@@ -7,6 +7,7 @@ import { tuyau } from "@/constants/tuyau";
 import { Text } from "@/components/ui/text";
 import { View } from 'react-native';
 import {LinearGradient} from "expo-linear-gradient";
+import { HStack } from "@/components/ui/hstack";
 
 export default function FriendRequestsTab() {
   const { user } = useAuthStore();
@@ -42,34 +43,36 @@ export default function FriendRequestsTab() {
   return (
     <VStack space="md">
       {friends?.map((friend) => (
-        <VStack key={friend.id}>
-
+        <HStack key={friend.id} className="items-center space-x-2">
           <View className="flex-1">
             <FriendsItem avatarUrl={friend.profile?.avatarUrl} username={friend.username} />
           </View>
 
           {!friend.sender && (
-            <>
-              <View className="flex-1">
-                <LinearGradient
-                  className="h-auto"
-                  colors={["#FF2C00","#FE63FF", "#9899FF"]}
-                  start={[0, 1]}
-                  end={[1, 0]}
-                  >
-                  <Button className="text-rythmix-dark bg-transparent uppercase h-10 flex-1" onPress={() => acceptFriendMutation.mutate(friend.id)}> 
-                    <ButtonText>Accepter</ButtonText>
-                  </Button>
-                </LinearGradient>
-
-                <Button className="text-rythmix-dark bg-transparent uppercase h-10 flex-1" onPress={() => rejectFriendMutation.mutate(friend.id)}>
-                  <ButtonText>Refuser</ButtonText>
+            <HStack className="space-x-2 items-center">
+              <LinearGradient
+                colors={["#FF2C00", "#FE63FF", "#9899FF"]}
+                start={[0, 1]}
+                end={[1, 0]}
+                className=""
+              >
+                <Button
+                  className="text-rythmix-dark bg-transparent uppercase h-8 px-4"
+                  onPress={() => acceptFriendMutation.mutate(friend.id)}
+                >
+                  <ButtonText>Accepter</ButtonText>
                 </Button>
-            </View>
-            </>
-          )}
+              </LinearGradient>
 
-        </VStack>
+              <Button
+                className="text-rythmix-dark bg-transparent uppercase h-8 px-4"
+                onPress={() => rejectFriendMutation.mutate(friend.id)}
+              >
+                <ButtonText>Refuser</ButtonText>
+              </Button>
+            </HStack>
+          )}
+        </HStack>
       ))}
     </VStack>
   );
