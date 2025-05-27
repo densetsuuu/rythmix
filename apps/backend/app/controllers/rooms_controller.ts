@@ -51,5 +51,4 @@ export default class RoomsController {
       return response.status(400).json({ message: 'Could not remove user from room' })
     }
   }
-
 }
