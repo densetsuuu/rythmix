@@ -60,7 +60,8 @@ export function LoginForm() {
     return (
         <>
             <Image alt="Rythmix logo" className="bottom-[-195px] left-[-50px] absolute w-64 z-10 h-96" source={require("../../assets/images/adaptive-icon.png")}/>
-                <VStack className="w-96">
+            <VStack className="bg-white/70 p-12 rounded-3xl border border-white backdrop-blur-3xl">
+                <VStack className="w-80">
                     <View className="mb-4">
                         <Heading size="4xl" className="text-rythmix-white font-black">Hi !</Heading>
                         <HStack className="inline-flex items-center">
